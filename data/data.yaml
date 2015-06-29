@@ -1,0 +1,5 @@
+- name: The GovLab
+  logo: govlab-logo.png
+  slug: the-govlab
+  color: 'rgba(71,43,116,1)'
+  blurb: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum harum error necessitatibus aspernatur, doloremque tempore laudantium hic iusto nulla, beatae. Itaque officiis atque repellendus porro praesentium ea, nulla odit nam.'

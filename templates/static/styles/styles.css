@@ -1,0 +1,161 @@
+html, body {
+  height: 100%;
+  overflow: hidden; }
+
+#mainContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto; }
+
+body {
+  margin: 0;
+  padding: 0; }
+
+h1,
+h2,
+h3,
+nav a {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-weight: 100; }
+
+p,
+td,
+th {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100; }
+
+th {
+  font-weight: 600; }
+
+.criminals {
+  background: url(../img/criminals-banner.jpg) no-repeat center top;
+  background-size: cover;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 60px; }
+
+.wrapper {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.bg {
+  background-color: #eee;
+  background: url(../img/jeff-ross-desktop.jpg) no-repeat center top;
+  background-size: cover;
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 55px;
+  bottom: 0; }
+
+.main {
+  background-color: #111;
+  opacity: .9; }
+
+.header {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: right; }
+  .header a {
+    text-decoration: none; }
+  .header .logo {
+    display: inline-block;
+    margin-bottom: 30px;
+    width: 30%; }
+    .header .logo h1 {
+      font-size: 3.4rem;
+      margin: 0;
+      color: #fff;
+      font-weight: bold; }
+    .header .logo h1 span,
+    .header .logo h2 span {
+      opacity: .5; }
+    .header .logo h2 {
+      font-size: 1.2rem;
+      margin: 0;
+      color: #fff; }
+
+.social-media {
+  position: fixed;
+  top: 100px; }
+  .social-media a {
+    color: #fff;
+    opacity: .5;
+    display: block;
+    margin: 20px 15px;
+    text-align: center;
+    cursor: pointer; }
+  .social-media a:hover {
+    opacity: 1; }
+
+.main > h1 {
+  color: white;
+  text-align: center;
+  background-color: #363441;
+  font-size: 1.5rem;
+  padding: 15px; }
+
+.content {
+  padding-bottom: 50px; }
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  color: #f6f6f6;
+  letter-spacing: 1px;
+  width: 120px;
+  transition: all .3s ease; }
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all .5s ease;
+  padding-right: 24px;
+  padding-left: 24px; }
+
+ul, li {
+  margin: 0;
+  list-style-type: none; }
+
+table {
+  margin-top: 50px;
+  color: #ddd;
+  width: 100%;
+  border-collapse: collapse; }
+  table th {
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 10px; }
+  table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 8px 10px; }
+    table td a,
+    table td .fa {
+      color: #aaa; }
+  table tr:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.05); }
+    table tr:hover td {
+      color: #fff; }
+      table tr:hover td a, table tr:hover td .fa {
+        color: #fff; }
+  table .date {
+    width: 10%; }
+  table .time {
+    width: 10%; }
+  table .show {
+    width: 15%; }
+  table .venue {
+    width: 45%; }
+  table .city {
+    width: 17%; }
+  table .link {
+    width: 3%; }

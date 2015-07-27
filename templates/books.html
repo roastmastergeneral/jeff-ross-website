@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block header %}
+  <div class="bg bg-books"></div>
+  <img class="criminals" src="static/img/criminals-banner.jpg">
+  <img class="criminals small-only" src="static/img/criminals-banner2.jpg">
+{% endblock %}
+
+{% block content %}
+  <h1>Books</h1>
+
+  <section class="content">
+    <div class="wrapper b-books">
+      <div class="b-left">
+        <div>
+          <img src="static/img/book-cover.jpg"/>
+        </div>
+
+        <div class="b-description">
+          <div class="e-quote">
+            <img src="static/img/quotes.png">
+            <p>If insulting somebody is an art form, then Jeffrey Ross is Pablo
+            Picasso <span>– CHICAGO TRIBUNE</span></p>
+            <img src="static/img/quotes.png">
+          </div>
+
+          <p>One of the world’s foremost practitioners of insult comedy, Jeffrey
+          Ross has memorably and uproariously roasted some of our favorite
+          celebrities. Part memoir and part how-to guide, I Only Roast the Ones
+          I Love unveils the irreverent secrets every successful roastmaster
+          should know.</p>
+
+          <a href=""><img src="static/img/logos/amazon.png"/></a>
+          <a href=""><img src="static/img/logos/good-reads.png"/></a>
+          <a href=""><img src="static/img/logos/barnes-and-noble.png"/></a>
+          <a href=""><img src="static/img/logos/google-play.png"/></a>
+          <a href=""><img src="static/img/logos/google-books.png"/></a>
+        </div>
+      </div>
+  </section>
+{% endblock %}

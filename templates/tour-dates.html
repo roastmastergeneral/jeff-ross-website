@@ -1,53 +1,28 @@
 {% extends "base.html" %}
 
+{% block header %}
+  <div class="bg bg-tour"></div>
+  <img class="criminals" src="static/img/criminals-banner.jpg">
+  <img class="criminals small-only" src="static/img/criminals-banner2.jpg">
+{% endblock %}
+
 {% block content %}
-  <div id="mainContainer">
-    <div class="criminals"></div>
+  <h1>Tour Dates</h1>
 
-    <header class="wrapper header">
-      <div class="social-media">
-        <a class="instagram"><i class="fa fa-2x fa-instagram"></i></a>
-        <a class="twitter"><i class="fa fa-2x fa-twitter"></i></a>
-        <a class="facebook"><i class="fa fa-2x fa-facebook"></i></a>
-      </div>
+  <section class="content">
+    <div class="wrapper">
+      <table class="tour-dates">
+        <thead>
+          <th class="m-ellipsis date">DATE</th>
+          <th class="m-ellipsis time">TIME</th>
+          <th class="m-ellipsis tour">TOUR</th>
+          <th class="m-ellipsis venue">VENUE</th>
+          <th class="m-ellipsis location">LOCATION</th>
+          <th class="link"></th>
+        </thead>
 
-      <a class="logo" href="./">
-        <h1><span>Jeff</span>Ross</h1>
-        <h2><span>The</span>Roastmaster<span>General</span></h2>
-      </a>
-
-      <nav>
-        <ul>
-          <li><a href="#tour">Tour Dates</a></li>
-          <li><a href="#">Specials</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Books</a></li>
-          <li><a href="#">Videos</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <div class="bg"></div>
-
-    <div class="main">
-      <h1>Tour Dates</h1>
-
-      <section class="content">
-        <div class="wrapper">
-          <table id="tour-dates">
-            <thead>
-              <th class="date">DATE</th>
-              <th class="time">TIME</th>
-              <th class="show">TOUR/SHOW</th>
-              <th class="venue">VENUE</th>
-              <th class="city">LOCATION</th>
-              <th></th>
-            </thead>
-
-            <tbody>>{# Filled via JavaScript. #}</tbody>
-          </table>
-        </div>
-      </section>
+        <tbody>{# Filled via JavaScript. #}</tbody>
+      </table>
     </div>
-  </div>
+  </section>
 {% endblock %}

@@ -17,8 +17,37 @@
   </head>
 
   <body>
-    {% block content %}{% endblock %}
+    <div id="mainContainer">
+      <header class="header">
+        <div class="wrapper">
+          <a class="logo" href="./">
+            <h1><span>Jeff</span>Ross</h1>
+            <h2><span>The</span>Roastmaster<span>General</span></h2>
+          </a>
 
-    {% block scripts %}{% endblock %}
+          <nav>
+            <ul>
+              <li><a href="tour-dates.html">Tour Dates</a></li>
+              <li><a href="specials.html">Specials</a></li>
+              <li><a href="press.html">Press</a></li>
+              <li><a href="books.html">Books</a></li>
+              <li><a href="">Videos</a></li>
+            </ul>
+          </nav>
+
+          <div class="social-media">
+            <a class="instagram"><i class="fa fa-2x fa-instagram"></i></a>
+            <a class="twitter"><i class="fa fa-2x fa-twitter"></i></a>
+            <a class="facebook"><i class="fa fa-2x fa-facebook"></i></a>
+          </div>
+        </div>
+
+        {% block header %}{% endblock %}
+      </header>
+
+      <div class="main">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
   </body>
 </html>

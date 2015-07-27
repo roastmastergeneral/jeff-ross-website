@@ -23,4 +23,5 @@ site = make_site(
 )
 
 
+# site.render()
 site.render(use_reloader=True)

@@ -1,0 +1,63 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* { box-sizing: border-box; }
+
+#mainContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  background-color: #202020;
+}
+
+a { text-decoration: none; }
+
+h1,
+h2,
+h3,
+nav a {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+p,
+.press-item,
+td,
+th {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+}
+
+p { line-height: 1.8; }
+th { font-weight: 600; }
+
+ul, li {
+  margin: 0;
+  list-style-type: none;
+}
+
+.m-italic { font-style: italic; }
+.m-display-none { display: none; }
+
+.m-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wrapper {
+  max-width: 960px;
+  margin-left:auto;
+  margin-right:auto;
+}

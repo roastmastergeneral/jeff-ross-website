@@ -1,0 +1,43 @@
+.tour-dates {
+  color: #ddd;
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0;
+
+  th {
+    text-align: left;
+    background-color: rgba(255,255,255, 0.1);
+    padding: 8px 10px;
+  }
+
+  td {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding: 8px 10px;
+
+    a,
+    .fa {color: #aaa;}
+  }
+
+  tr:hover {
+    cursor: pointer;
+    background-color: rgba(255,255,255, 0.05);
+
+    td {
+      color: #fff;
+
+      a, .fa {color: #fff;}
+    }
+  }
+
+  .date { width: 15%;}
+  .time {width: 15%;}
+  .tour {width: 15%;}
+  .venue {width: 31%;}
+  .location {width: 17%;}
+  .link {width: 7%;}
+}
+
+// Medium screens
+@media only screen and (max-width: 40em) {
+  .tour-dates { font-size: 2vw; }
+}

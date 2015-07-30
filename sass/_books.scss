@@ -1,0 +1,85 @@
+.b-books {
+  .b-left, .b-right {
+    > div > img {
+      width: 350px;
+    }
+
+    .b-description {
+      font-size: 21px;
+
+      .e-quote {
+        font-size: 30px;
+        margin-bottom: 50px;
+        position: relative;
+
+        p {
+          position: relative;
+          z-index: 2;
+        }
+
+        img {
+          position: absolute;
+          width: 60px;
+          z-index: 2;
+          opacity: 0.5;
+        }
+
+        img:first-of-type {
+          top: -37px;
+          transform: rotate(180deg);
+        }
+
+        img:last-of-type {
+          top: 75px;
+          right: -8px;
+        }
+
+        span {
+          color: rgb(249, 182, 33);
+          font-size: 21px;
+          line-height: 30px;
+        }
+      }
+
+      p {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+// Medium screens
+@media only screen and (max-width: 40em) {
+.b-books {
+    .b-left, .b-right {
+      .b-description {
+        .e-quote {
+          margin-top: 50px;
+
+          img:first-of-type {
+            top: -11px;
+            left: 0;
+          }
+
+          img:last-of-type {
+            top: initial;
+            bottom: -20px;
+            right: 0;
+          }
+        }
+
+
+        a img {
+          margin: 0;
+          padding: 0;
+        }
+
+        a + a {
+          margin-top: 25px;
+          padding-top: 25px;
+          border-top: 1px solid #ddd;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.bg {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #202020;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40px;
+  bottom: 0;
+
+  @include breakpoint($tablet) { top: 55px; }
+  @include breakpoint($desktop) { top: 60px; }
+}
+
+.bg-index {
+  background-image: url(../img/index.png);
+  top: 0;
+}
+
+.bg-tour { background-image: url(../img/tour.jpg); }
+.bg-specials { background-image: url(../img/specials.png); }
+.bg-books { background-image: url(../img/books.png); }
+.bg-press { background-image: url(../img/index.png); }
+
+.b-criminals-banner {
+  background-image: url(../img/criminals-banner.jpg);
+  background-size: cover;
+  height: 40px;
+  width: 100%;
+  background-position: center;
+
+  &.m-top {
+    position: absolute;
+    top: 0;
+  }
+
+  @include breakpoint($tablet) { height: 55px; }
+  @include breakpoint($desktop) { height: 60px; }
+}

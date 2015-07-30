@@ -1,0 +1,17 @@
+.social-media {
+  position: absolute;
+  top: 100px;
+
+  a {
+    color: #fff;
+    opacity: .5;
+    display: block;
+    margin: 20px 15px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  a:hover {
+    opacity: 1;
+  }
+}

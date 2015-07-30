@@ -1,85 +1,77 @@
 .b-books {
   .b-left, .b-right {
-    > div > img {
-      width: 350px;
+    > div > img { width: 350px; }
     }
 
     .b-description {
       font-size: 21px;
 
+      > p {
+        text-align: left;
+      }
+      
+      @include breakpoint($desktop) { margin-left: 20px; }
+      
+
       .e-quote {
         font-size: 30px;
-        margin-bottom: 50px;
         position: relative;
+        padding: 0 20px;
+        margin: 0;
+        text-align: right;
 
         p {
           position: relative;
           z-index: 2;
-        }
+          margin-bottom: 30px;
 
-        img {
-          position: absolute;
-          width: 60px;
-          z-index: 2;
-          opacity: 0.5;
-        }
+          &:before,
+          &:after {
+            width: 76px;
+            height: 76px;
+            background-size: contain;
+            content: '';
+            position: absolute;
+            background-repeat: no-repeat;
+            opacity: .1;
+          }
 
-        img:first-of-type {
-          top: -37px;
-          transform: rotate(180deg);
-        }
+          &:before { 
+            
+            background-image: url(../img/quotes-left.png);
+            
+            @include breakpoint($mobile) { left: 10px; }
+            @include breakpoint($tablet) { left: 0; }
+            @include breakpoint($desktop) { left: 20px; }
+          }
 
-        img:last-of-type {
-          top: 75px;
-          right: -8px;
+          &:after { 
+            right: -10px;
+            background-image: url(../img/quotes.png);
+
+            @include breakpoint($tablet) {
+              right: 0;
+            }
+          }
+
+          
+
         }
 
         span {
           color: rgb(249, 182, 33);
-          font-size: 21px;
+          font-size: 16px;
           line-height: 30px;
+          display: block;
+          text-align: right;
+          font-weight: 400;
         }
-      }
-
-      p {
-        margin-bottom: 30px;
       }
     }
   }
-}
 
-// Medium screens
-@media only screen and (max-width: 40em) {
 .b-books {
-    .b-left, .b-right {
-      .b-description {
-        .e-quote {
-          margin-top: 50px;
-
-          img:first-of-type {
-            top: -11px;
-            left: 0;
-          }
-
-          img:last-of-type {
-            top: initial;
-            bottom: -20px;
-            right: 0;
-          }
-        }
-
-
-        a img {
-          margin: 0;
-          padding: 0;
-        }
-
-        a + a {
-          margin-top: 25px;
-          padding-top: 25px;
-          border-top: 1px solid #ddd;
-        }
-      }
-    }
+  .b-stores {
+    margin-top: 50px;
   }
 }

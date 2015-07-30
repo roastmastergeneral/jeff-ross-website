@@ -30,6 +30,7 @@ nav a {
   font-weight: 100; }
 
 p,
+blockquote,
 .press-item,
 td,
 th {
@@ -182,6 +183,12 @@ nav a:hover {
   margin-bottom: 17px; }
 .b-stores .e-vudu {
   max-height: 30px; }
+.b-stores .e-amazon {
+  margin-bottom: 13px; }
+.b-stores .e-barnes-and-noble {
+  margin-bottom: 25px; }
+.b-stores .e-google-play {
+  max-height: 42px; }
 
 .b-right :first-child {
   order: 1;
@@ -308,50 +315,59 @@ nav a:hover {
 
 .b-books .b-left > div > img, .b-books .b-right > div > img {
   width: 350px; }
-.b-books .b-left .b-description, .b-books .b-right .b-description {
+.b-books .b-description {
   font-size: 21px; }
-  .b-books .b-left .b-description .e-quote, .b-books .b-right .b-description .e-quote {
+  .b-books .b-description > p {
+    text-align: left; }
+  @media (min-width: 1100px) {
+    .b-books .b-description {
+      margin-left: 20px; } }
+  .b-books .b-description .e-quote {
     font-size: 30px;
-    margin-bottom: 50px;
-    position: relative; }
-    .b-books .b-left .b-description .e-quote p, .b-books .b-right .b-description .e-quote p {
-      position: relative;
-      z-index: 2; }
-    .b-books .b-left .b-description .e-quote img, .b-books .b-right .b-description .e-quote img {
-      position: absolute;
-      width: 60px;
-      z-index: 2;
-      opacity: 0.5; }
-    .b-books .b-left .b-description .e-quote img:first-of-type, .b-books .b-right .b-description .e-quote img:first-of-type {
-      top: -37px;
-      transform: rotate(180deg); }
-    .b-books .b-left .b-description .e-quote img:last-of-type, .b-books .b-right .b-description .e-quote img:last-of-type {
-      top: 75px;
-      right: -8px; }
-    .b-books .b-left .b-description .e-quote span, .b-books .b-right .b-description .e-quote span {
-      color: #f9b621;
-      font-size: 21px;
-      line-height: 30px; }
-  .b-books .b-left .b-description p, .b-books .b-right .b-description p {
-    margin-bottom: 30px; }
-
-@media only screen and (max-width: 40em) {
-  .b-books .b-left .b-description .e-quote, .b-books .b-right .b-description .e-quote {
-    margin-top: 50px; }
-    .b-books .b-left .b-description .e-quote img:first-of-type, .b-books .b-right .b-description .e-quote img:first-of-type {
-      top: -11px;
-      left: 0; }
-    .b-books .b-left .b-description .e-quote img:last-of-type, .b-books .b-right .b-description .e-quote img:last-of-type {
-      top: initial;
-      bottom: -20px;
-      right: 0; }
-  .b-books .b-left .b-description a img, .b-books .b-right .b-description a img {
+    position: relative;
+    padding: 0 20px;
     margin: 0;
-    padding: 0; }
-  .b-books .b-left .b-description a + a, .b-books .b-right .b-description a + a {
-    margin-top: 25px;
-    padding-top: 25px;
-    border-top: 1px solid #ddd; } }
+    text-align: right; }
+    .b-books .b-description .e-quote p {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 30px; }
+      .b-books .b-description .e-quote p:before, .b-books .b-description .e-quote p:after {
+        width: 76px;
+        height: 76px;
+        background-size: contain;
+        content: '';
+        position: absolute;
+        background-repeat: no-repeat;
+        opacity: .1; }
+      .b-books .b-description .e-quote p:before {
+        background-image: url(../img/quotes-left.png); }
+        @media (max-width: 700px) {
+          .b-books .b-description .e-quote p:before {
+            left: 10px; } }
+        @media (min-width: min-width) and (min-width: 701px) and (min-width: max-width) and (min-width: 1099px) {
+          .b-books .b-description .e-quote p:before {
+            left: 0; } }
+        @media (min-width: 1100px) {
+          .b-books .b-description .e-quote p:before {
+            left: 20px; } }
+      .b-books .b-description .e-quote p:after {
+        right: -10px;
+        background-image: url(../img/quotes.png); }
+        @media (min-width: min-width) and (min-width: 701px) and (min-width: max-width) and (min-width: 1099px) {
+          .b-books .b-description .e-quote p:after {
+            right: 0; } }
+    .b-books .b-description .e-quote span {
+      color: #f9b621;
+      font-size: 16px;
+      line-height: 30px;
+      display: block;
+      text-align: right;
+      font-weight: 400; }
+
+.b-books .b-stores {
+  margin-top: 50px; }
+
 #admin {
   font-family: 'Montserrat', sans-serif;
   background-color: #f1f1f1; }

@@ -6,28 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Jeff Ross - The RoastMaster General{% endblock %}</title>
     <link rel="stylesheet" href="static/styles/styles.css"/>
+    <link rel="stylesheet" href="static/assets/pikaday.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700|Montserrat:400,700">
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     <script src="static/assets/foundation/js/vendor/modernizr.js"></script>
     <script src="static/assets/foundation/js/vendor/jquery.js"></script>
-    <script src="static/assets/foundation/js/foundation.min.js"></script>
+    <script src="static/assets/moment.js"></script>
+    <script src="static/assets/pikaday.js"></script>
     <script src="static/js/scripts.js"></script>
     {% block head %}{% endblock %}
   </head>
 
   <body id="admin">
-      <div class="b-login modal" style="height: 220px">
+      <div class="b-login modal" style="height: 230px">
         <p>Log In</p>
 
         <div>
           <span class="label">Email</span>
-          <input type="text" name="email"/>
+          <input type="text" class="email" name="email"/>
         </div>
 
         <div>
           <span class="label">Password</span>
-          <input type="text" name="password"/>
+          <input type="password" class="password" name="password"/>
         </div>
 
         <div class="actions">
@@ -55,10 +57,11 @@
               <thead>
                 <tr>
                   <th width="90px">Date</th>
+                  <th width="90px">Type</th>
                   <th width="100%">Title</th>
                   <th width="190%">Publisher</th>
                   <th width="100%">Link</th>
-                  <th width="40px"></th>
+                  <th width="75px"></th>
                 </tr>
               </thead>
 
@@ -80,7 +83,7 @@
                   <th width="100%">Location</th>
                   <th width="100%">Time</th>
                   <th width="100%">Link</th>
-                  <th width="40px"></th>
+                  <th width="75px"></th>
                 </tr>
               </thead>
 
@@ -89,61 +92,152 @@
           </div>
       </div>
 
-      <div class="modal-add-press modal m-display-none" style="height: 260px">
+      <div class="modal-add-press modal m-display-none" style="height: 310px">
         <div>
           <span class="label">Date</span>
-          <input type="text" name="date"/>
+          <input class="date datepicker" type="text" name="date"/>
         </div>
 
         <div>
           <span class="label">Title</span>
-          <input type="text" name="title"/>
+          <input type="text" class="title" name="title"/>
         </div>
 
         <div>
           <span class="label">Publisher</span>
-          <input type="text" name="publisher"/>
+          <input type="text" class="publisher" name="publisher"/>
         </div>
 
         <div>
           <span class="label">Link</span>
-          <input type="text" name="link"/>
+          <input type="text" class="link" name="link"/>
         </div>
 
-        <div class="actions"><span class="add">Add</span></div>
+        <div>
+          <span class="label">type</span>
+          <select class="type" name="type">
+            <option value="article">Article</option
+            ><option value="video">Video</option>
+            <option value="audio">Audio</option>
+          </select>
+        </div>
+
+        <div class="actions">
+          <span class="close">Cancel</span>
+          <span class="add">Add</span>
+        </div>
       </div>
 
       <div class="modal-add-tour modal m-display-none">
         <div>
           <span class="label">Date</span>
-          <input type="text" name="date"/>
+          <input class="date datepicker" type="text" name="date"/>
         </div>
 
         <div>
           <span class="label">Tour</span>
-          <input type="text" name="tour"/>
+          <input type="text" class="tour" name="tour"/>
         </div>
 
         <div>
           <span class="label">Venue</span>
-          <input type="text" name="venue"/>
+          <input type="text" class="venue" name="venue"/>
         </div>
 
         <div>
           <span class="label">Location</span>
-          <input type="text" name="location"/>
+          <input type="text" class="location" name="location"/>
         </div>
 
         <div>
           <span class="label">Time</span>
-          <input type="text" name="time"/>
+          <input type="text" class="time" name="time"/>
         </div>
 
         <div>
           <span class="label">Link</span>
-          <input type="text" name="link"/>
+          <input type="text" class="link" name="link"/>
         </div>
 
-        <div class="actions"><span class="add">Add</span></div>
+        <div class="actions">
+          <span class="close">Cancel</span>
+          <span class="add">Add</span>
+        </div>
       </div>
+
+      <div class="modal-edit-press modal m-display-none" style="height: 310px">
+        <div>
+          <span class="label">Date</span>
+          <input class="date datepicker" type="text" name="date"/>
+        </div>
+
+        <div>
+          <span class="label">Title</span>
+          <input type="text" class="title" name="title"/>
+        </div>
+
+        <div>
+          <span class="label">Publisher</span>
+          <input type="text" class="publisher" name="publisher"/>
+        </div>
+
+        <div>
+          <span class="label">Link</span>
+          <input type="text" class="link" name="link"/>
+        </div>
+
+        <div>
+          <span class="label">type</span>
+          <select class="type" name="type">
+            <option value="article">Article</option
+            ><option value="video">Video</option>
+            <option value="audio">Audio</option>
+          </select>
+        </div>
+
+        <div class="actions">
+          <span class="close">Cancel</span>
+          <span class="edit">Edit</span>
+        </div>
+      </div>
+
+      <div class="modal-edit-tour modal m-display-none">
+        <div>
+          <span class="label">Date</span>
+          <input class="date datepicker" type="text" name="date"/>
+        </div>
+
+        <div>
+          <span class="label">Tour</span>
+          <input type="text" class="tour" name="tour"/>
+        </div>
+
+        <div>
+          <span class="label">Venue</span>
+          <input type="text" class="venue" name="venue"/>
+        </div>
+
+        <div>
+          <span class="label">Location</span>
+          <input type="text" class="location" name="location"/>
+        </div>
+
+        <div>
+          <span class="label">Time</span>
+          <input type="text" class="time" name="time"/>
+        </div>
+
+        <div>
+          <span class="label">Link</span>
+          <input type="text" class="link" name="link"/>
+        </div>
+
+        <div class="actions">
+          <span class="close">Cancel</span>
+          <span class="edit"></span>
+        </div>
+      </div>
+  </body>
+
+  <div class="e-overlay m-display-none"></div>
 </html>

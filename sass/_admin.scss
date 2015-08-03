@@ -35,6 +35,7 @@
 
       .e-logout {
         float: right;
+        cursor: pointer;
       }
     }
   }
@@ -94,7 +95,17 @@
         color: #444;
         text-align: left;
 
-        .fa {color: #666;}
+        &.m-capitalize {
+          text-transform: capitalize;
+        }
+
+        .fa {
+          color: #999;
+        }
+
+        .fa-pencil {
+          margin-right: 10px;
+        }
       }
     }
   }
@@ -104,6 +115,7 @@
     width: 100%;
     max-width: 375px;
     position: fixed;
+    z-index: 1;
     top: 0;
     left: 0;
     bottom: 0;
@@ -125,7 +137,7 @@
       color: #444;
     }
 
-    input {
+    input, select {
       width: 215px;
       min-height: 20px;
       padding: 6px 4px 6px 7px;
@@ -136,10 +148,11 @@
       border: 1px solid #CCC;
       border-radius: 2px;
       margin: 0 0 4px;
+      background-color: white;
     }
 
     .actions {
-      padding: 20px 16px;
+      padding: 20px 16px 20px 0;
       margin-top: -9px;
       text-align: right;
 
@@ -147,6 +160,19 @@
         color: #03A9F4;
         cursor: pointer;
       }
+
+      .close {
+        float: left;
+      }
     }
+  }
+
+  .e-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.6);
   }
 }

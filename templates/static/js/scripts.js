@@ -73,6 +73,24 @@ $(document).ready(function() {
         });
     }
 
+    if ($('.videos').length) {
+        $.get('https://www.googleapis.com/youtube/v3/playlistItems', {
+            key: 'AIzaSyBnpHRDUZhCruzPnmNrN6U_KikY_28-61Q',
+            part: 'snippet',
+            playlistId: 'UUvCmIDV0kb0CXez4xjNdE_w'},
+            function(data) {
+                $.each(data.items, function(i, item) {
+                    var html = '<li><iframe src="//www.youtube.com/embed/';
+
+                    html += item.snippet.resourceId.videoId;
+                    html += '"></iframe></li>';
+
+                    $('.videos').append(html);
+                });
+            }
+        );
+    }
+
     //
     // Admin.
     //
@@ -141,8 +159,8 @@ $(document).ready(function() {
     });
 
     if ($('#admin-press').length) {
-        db.child('press').orderByChild('date').on('child_added', function(ss) {
-            var obj = ss.val(),
+        db.child('press').orderByChild('date').on('child_added', function(snapshot) {
+            var obj = snapshot.val(),
                 $tr = $('<tr/>');
 
             $tr.append($('<td>').addClass('m-ellipsis date').text(obj.date));

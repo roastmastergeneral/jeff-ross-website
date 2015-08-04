@@ -34,7 +34,7 @@ $(document).ready(function() {
                 $d2.append($d3);
                 $d1.append($('<i/>').addClass('fa fa-file-text-o'));
 
-                $('.press').append($li.append($a.append($div1).append($div2)));
+                $('.press').append($li.append($a.append($d1).append($d2)));
             }
         });
     }
@@ -106,7 +106,7 @@ $(document).ready(function() {
             new Pikaday({ field: this, format: 'DD/MM/YYYY' });
         });
 
-        $('#admin .b-login .e-submit').click(function(event) {
+        $('#admin .b-login').submit(function() {
             var id = $('.b-login .email').val(),
                 pwd = $('.b-login .password').val();
 
@@ -153,11 +153,6 @@ $(document).ready(function() {
 
     // Press.
     //
-    $('#admin .add-button.add-press').click(function() {
-        $('.modal-add-press').removeClass('m-display-none');
-        $('.e-overlay').removeClass('m-display-none');
-    });
-
     if ($('#admin-press').length) {
         db.child('press').orderByChild('date').on('child_added', function(snapshot) {
             var obj = snapshot.val(),
@@ -175,24 +170,15 @@ $(document).ready(function() {
         });
     }
 
+    $('#admin .add-button.add-press').click(function() {
+        $('.modal-add-press').removeClass('m-display-none');
+        $('.e-overlay').removeClass('m-display-none');
+    });
+
     $('#admin-press').on('click', '.fa.fa-times', function() {
         db.child('press').child($(this).data('oid')).set(null);
 
         $(this).parents('tr').remove();
-    });
-
-    $('#admin .modal-add-press .add').click(function() {
-        var doc = {};
-
-        $(this).parents('.modal').find(':input').each(function() {
-            doc[$(this).attr('name')] = $(this).val();
-        });
-
-        db.child('press').push(doc);
-
-        $('.modal-add-press').addClass('m-display-none');
-        $('.e-overlay').addClass('m-display-none');
-        $('.modal-add-press input').val('');
     });
 
     $('#admin-press').on('click', '.fa.fa-pencil', function() {
@@ -205,13 +191,29 @@ $(document).ready(function() {
         $mod.find('.publisher').val($tds.eq(3).text());
         $mod.find('.link').val($tds.eq(4).text());
 
-        $('.modal-edit-press .edit').data('tr', $(this).parents('tr'));
-        $('.modal-edit-press .edit').data('oid', $(this).data('oid'));
+        $('.modal-edit-press').data('tr', $(this).parents('tr'));
+        $('.modal-edit-press').data('oid', $(this).data('oid'));
         $('.modal-edit-press').removeClass('m-display-none');
         $('.e-overlay').removeClass('m-display-none');
     });
 
-    $('#admin .modal-edit-press .edit').click(function() {
+    $('#admin .modal-add-press').submit(function() {
+        var doc = {};
+
+        $(this).find(':input').each(function() {
+            doc[$(this).attr('name')] = $(this).val();
+        });
+
+        db.child('press').push(doc);
+
+        $('.modal-add-press').addClass('m-display-none');
+        $('.e-overlay').addClass('m-display-none');
+        $('.modal-add-press input').val('');
+
+        return false;
+    });
+
+    $('#admin .modal-edit-press').submit(function() {
         var $mod = $('.modal-edit-press'),
             $tr = $(this).data('tr'),
             doc = {};
@@ -233,15 +235,12 @@ $(document).ready(function() {
         $('.modal-edit-press').addClass('m-display-none');
         $('.e-overlay').addClass('m-display-none');
         $('.modal-edit-press input').val('');
+
+        return false;
     });
 
     // Tour.
     //
-    $('#admin .add-button.add-tour').click(function() {
-        $('.modal-add-tour').removeClass('m-display-none');
-        $('.e-overlay').removeClass('m-display-none');
-    });
-
     if ($('#admin-tour').length) {
         db.child('tour-dates').on('child_added', function(snapshot) {
             var obj = snapshot.val(),
@@ -260,24 +259,15 @@ $(document).ready(function() {
         });
     }
 
+    $('#admin .add-button.add-tour').click(function() {
+        $('.modal-add-tour').removeClass('m-display-none');
+        $('.e-overlay').removeClass('m-display-none');
+    });
+
     $('#admin-tour').on('click', '.fa.fa-times', function() {
         db.child('tour-dates').child($(this).data('oid')).set(null);
 
         $(this).parents('tr').remove();
-    });
-
-    $('#admin .modal-add-tour .add').click(function() {
-        var doc = {};
-
-        $(this).parents('.modal').find(':input').each(function() {
-            doc[$(this).attr('name')] = $(this).val();
-        });
-
-        db.child('tour-dates').push(doc);
-
-        $('.modal-add-tour').addClass('m-display-none');
-        $('.e-overlay').addClass('m-display-none');
-        $('.modal-add-tour input').val('');
     });
 
     $('#admin-tour').on('click', '.fa.fa-pencil', function() {
@@ -291,13 +281,29 @@ $(document).ready(function() {
         $mod.find('.time').val($tds.eq(4).text());
         $mod.find('.link').val($tds.eq(5).text());
 
-        $('.modal-edit-tour .edit').data('tr', $(this).parents('tr'));
-        $('.modal-edit-tour .edit').data('oid', $(this).data('oid'));
+        $('.modal-edit-tour').data('tr', $(this).parents('tr'));
+        $('.modal-edit-tour').data('oid', $(this).data('oid'));
         $('.modal-edit-tour').removeClass('m-display-none');
         $('.e-overlay').removeClass('m-display-none');
     });
 
-    $('#admin .modal-edit-tour .edit').click(function() {
+    $('#admin .modal-add-tour').submit(function() {
+        var doc = {};
+
+        $(this).find(':input').each(function() {
+            doc[$(this).attr('name')] = $(this).val();
+        });
+
+        db.child('tour-dates').push(doc);
+
+        $('.modal-add-tour').addClass('m-display-none');
+        $('.e-overlay').addClass('m-display-none');
+        $('.modal-add-tour input').val('');
+
+        return false;
+    });
+
+    $('#admin .modal-edit-tour').submit(function() {
         var $mod = $('.modal-edit-tour'),
             $tr = $(this).data('tr'),
             doc = {};
@@ -321,5 +327,7 @@ $(document).ready(function() {
         $('.modal-edit-tour').addClass('m-display-none');
         $('.e-overlay').addClass('m-display-none');
         $('.modal-edit-tour input').val('');
+
+        return false;
     });
  });

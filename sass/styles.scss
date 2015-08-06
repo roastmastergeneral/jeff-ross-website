@@ -66,6 +66,11 @@ $desktop: min-width 1100px;
     flex: 1 0;
     -webkit-flex: 1 0;
     color: white;
+  }
+}
+
+.b-description {
+    color: white;
 
     .e-title {
       font-family: 'Montserrat', sans-serif;
@@ -81,9 +86,15 @@ $desktop: min-width 1100px;
       color: #ddd;
     }
 
-    a { display: inline-block; }
+    a { 
+      display: inline-block;
+      color: white;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
-}
 
 .b-center {
   .b-description {

@@ -262,6 +262,9 @@ nav {
     width: 100%;
     height: 100%; }
 
+.videos li + li {
+  margin-top: 50px; }
+
 .tour-dates {
   color: #ddd;
   width: 100%;
@@ -485,7 +488,7 @@ nav {
         #admin .b-main table td .fa-pencil {
           margin-right: 10px; }
   #admin .modal {
-    height: 352px;
+    height: 360px;
     width: 100%;
     max-width: 375px;
     position: fixed;
@@ -524,9 +527,12 @@ nav {
       padding: 20px 16px 20px 0;
       margin-top: -9px;
       text-align: right; }
-      #admin .modal .actions span {
+      #admin .modal .actions span, #admin .modal .actions button {
         color: #03A9F4;
-        cursor: pointer; }
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        font-size: 16px; }
       #admin .modal .actions .close {
         float: left; }
   #admin .e-overlay {

@@ -9,9 +9,9 @@
       > p {
         text-align: left;
       }
-      
+
       @include breakpoint($desktop) { margin-left: 20px; }
-      
+
 
       .e-quote {
         font-size: 30px;
@@ -36,16 +36,16 @@
             opacity: .1;
           }
 
-          &:before { 
-            
+          &:before {
+
             background-image: url(../img/quotes-left.png);
-            
+
             @include breakpoint($mobile) { left: 10px; }
             @include breakpoint($tablet) { left: 0; }
             @include breakpoint($desktop) { left: 20px; }
           }
 
-          &:after { 
+          &:after {
             right: -10px;
             background-image: url(../img/quotes.png);
 
@@ -54,7 +54,7 @@
             }
           }
 
-          
+
 
         }
 

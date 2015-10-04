@@ -1,5 +1,12 @@
 $(document).ready(function() {
-    var db = new Firebase('https://jeff-ross.firebaseio.com/');
+    var db = null;
+
+    if (location.hostname == 'roastmastergeneral.com') {
+        db = new Firebase('https://jeff-ross.firebaseio.com/');
+
+    } else {
+        db = new Firebase('https://jeff-ross-dev.firebaseio.com/');
+    }
 
     //
     // Page.
@@ -32,7 +39,16 @@ $(document).ready(function() {
                 $d3.append($('<span/>').addClass('press-date').text(obj.date));
                 $d2.append($('<div>').addClass('press-title').text(obj.title));
                 $d2.append($d3);
-                $d1.append($('<i/>').addClass('fa fa-file-text-o'));
+
+                if (obj.type == 'article') {
+                    $d1.append($('<i/>').addClass('fa fa-file-text-o'));
+
+                } else if (obj.type == 'video') {
+                    $d1.append($('<i/>').addClass('fa fa-video-camera'));
+
+                } else if (obj.type == 'audio') {
+                    $d1.append($('<i/>').addClass('fa fa-volume-up'));
+                }
 
                 $('.press').append($li.append($a.append($d1).append($d2)));
             }

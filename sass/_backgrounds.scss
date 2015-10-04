@@ -7,15 +7,16 @@
   background-image: url(../img/bg-mobile-01.jpg);
   left: 0;
   right: 0;
-  top: 40px;
+  top: 0;
   bottom: 0;
+  height: 100vh;
 
   @include breakpoint($tablet) { 
     top: 55px;
     background-image: url(../img/bg-mobile-01.jpg);
   }
   @include breakpoint($desktop) { 
-    top: 60px;
+    top: 0;
     background-image: url(../img/bg-01.jpg);
   }
 }

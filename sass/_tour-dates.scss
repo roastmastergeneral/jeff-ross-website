@@ -41,3 +41,20 @@
 @media only screen and (max-width: 40em) {
   .tour-dates { font-size: 2vw; }
 }
+
+.b-upcoming-show {
+  padding: 10px;
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 100%;
+
+  a {color: white;}
+  a:hover {text-decoration: underline;}
+}

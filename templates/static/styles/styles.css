@@ -170,15 +170,16 @@ nav {
   background-image: url(../img/bg-mobile-01.jpg);
   left: 0;
   right: 0;
-  top: 40px;
-  bottom: 0; }
+  top: 0;
+  bottom: 0;
+  height: 100vh; }
   @media (min-width: min-width) and (min-width: 701px) and (min-width: max-width) and (min-width: 1099px) {
     .bg {
       top: 55px;
       background-image: url(../img/bg-mobile-01.jpg); } }
   @media (min-width: 1100px) {
     .bg {
-      top: 60px;
+      top: 0;
       background-image: url(../img/bg-01.jpg); } }
 
 .bg-index {
@@ -310,6 +311,23 @@ nav {
 @media only screen and (max-width: 40em) {
   .tour-dates {
     font-size: 2vw; } }
+.b-upcoming-show {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 100%; }
+  .b-upcoming-show a {
+    color: white; }
+  .b-upcoming-show a:hover {
+    text-decoration: underline; }
+
 .press {
   margin: 0;
   padding: 0; }

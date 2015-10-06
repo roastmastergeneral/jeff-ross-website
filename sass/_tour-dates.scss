@@ -39,7 +39,6 @@
 
 // Medium screens
 @media only screen and (max-width: 40em) {
-  .tour-dates { font-size: 2vw; }
 }
 
 .b-upcoming-show {
@@ -54,7 +53,15 @@
   top: 0;
   text-align: center;
   width: 100%;
+  font-size: 12px;
 
   a {color: white;}
   a:hover {text-decoration: underline;}
+
+  @include breakpoint($tablet) {font-size: 16px;}
+  @include breakpoint($desktop) {font-size: 16px;}
+
+  br {
+    @include breakpoint($desktop) {display: none;}    
+  }
 }

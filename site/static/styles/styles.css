@@ -63,6 +63,20 @@ ul, li {
   margin-left: auto;
   margin-right: auto; }
 
+.b-text-page {
+  padding: 0 20px; }
+  .b-text-page p {
+    color: rgba(255, 255, 255, 0.9); }
+  .b-text-page a {
+    color: currentColor;
+    text-decoration: underline; }
+    @media (min-width: 1100px) {
+      .b-text-page a {
+        text-decoration: none; } }
+  @media (min-width: 1100px) {
+    .b-text-page a:hover {
+      text-decoration: underline; } }
+
 .header {
   padding: 100px 0;
   text-align: right;
@@ -94,20 +108,23 @@ nav {
   text-align: right; }
   @media (max-width: 700px) {
     nav ul {
-      display: none; }
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      bottom: 0;
+      left: 100%;
+      display: -webkit-flex;
+      -webkit-flex-direction: column;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      background-color: rgba(0, 0, 0, 0.92);
+      transition: all .4s ease; }
       nav ul.active {
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        bottom: 0;
-        display: -webkit-flex;
-        -webkit-flex-direction: column;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-        padding: 0;
-        background-color: rgba(0, 0, 0, 0.92); }
+        left: 0;
+        transition: all .4s ease; }
         nav ul.active li {
           width: 100%;
           text-align: center;
@@ -203,8 +220,9 @@ nav {
     background-image: url(../img/bg-03.jpg); } }
 
 .b-criminals-banner {
-  background-image: url(../img/criminals-banner.jpg);
+  background-image: url(../img/criminals-banner2.jpg);
   background-size: cover;
+  display: block;
   height: 40px;
   width: 100%;
   background-position: center; }
@@ -213,10 +231,11 @@ nav {
     top: 0; }
   @media (min-width: min-width) and (min-width: 701px) and (min-width: max-width) and (min-width: 1099px) {
     .b-criminals-banner {
-      height: 55px; } }
+      background-image: url(../img/criminals-banner.jpg); } }
   @media (min-width: 1100px) {
     .b-criminals-banner {
-      height: 60px; } }
+      height: 60px;
+      background-image: url(../img/criminals-banner.jpg); } }
 
 .b-stores img {
   max-width: 150px;
@@ -308,9 +327,6 @@ nav {
   .tour-dates .link {
     width: 7%; }
 
-@media only screen and (max-width: 40em) {
-  .tour-dates {
-    font-size: 2vw; } }
 .b-upcoming-show {
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.3);
@@ -322,11 +338,21 @@ nav {
   position: absolute;
   top: 0;
   text-align: center;
-  width: 100%; }
+  width: 100%;
+  font-size: 12px; }
   .b-upcoming-show a {
     color: white; }
   .b-upcoming-show a:hover {
     text-decoration: underline; }
+  @media (min-width: min-width) and (min-width: 701px) and (min-width: max-width) and (min-width: 1099px) {
+    .b-upcoming-show {
+      font-size: 16px; } }
+  @media (min-width: 1100px) {
+    .b-upcoming-show {
+      font-size: 16px; } }
+  @media (min-width: 1100px) {
+    .b-upcoming-show br {
+      display: none; } }
 
 .press {
   margin: 0;

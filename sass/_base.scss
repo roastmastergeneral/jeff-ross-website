@@ -62,3 +62,20 @@ ul, li {
   margin-left:auto;
   margin-right:auto;
 }
+
+.b-text-page {
+  padding: 0 20px;
+  p { color: rgba(255,255,255,0.9); }
+  a { 
+    color: currentColor;
+    text-decoration: underline;
+
+    @include breakpoint($desktop) { text-decoration: none; }
+  }
+
+  a:hover { 
+    @include breakpoint($desktop) { text-decoration: underline; } 
+  }
+}
+
+

@@ -40,8 +40,9 @@
 }
 
 .b-criminals-banner {
-  background-image: url(../img/criminals-banner.jpg);
+  background-image: url(../img/criminals-banner2.jpg);
   background-size: cover;
+  display: block;
   height: 40px;
   width: 100%;
   background-position: center;
@@ -51,6 +52,12 @@
     top: 0;
   }
 
-  @include breakpoint($tablet) { height: 55px; }
-  @include breakpoint($desktop) { height: 60px; }
+  @include breakpoint($tablet) { 
+    // height: 55px; 
+    background-image: url(../img/criminals-banner.jpg);
+  }
+  @include breakpoint($desktop) { 
+    height: 60px; 
+    background-image: url(../img/criminals-banner.jpg);
+  }
 }

@@ -8,6 +8,16 @@ $(document).ready(function() {
         db = new Firebase('https://jeff-ross-dev.firebaseio.com/');
     }
 
+    if ($('.bg-carousel').length > 1) {
+        setInterval(function() {
+            var curr = $('.bg-carousel.m-visible'),
+                next = curr.is('.bg-carousel:last') ? $('.bg-carousel').eq(0) : curr.next();
+
+            curr.removeClass('m-visible');
+            next.addClass('m-visible');
+        }, 6500);
+    }
+
     //
     // Page.
     //

@@ -189,7 +189,16 @@ nav {
   right: 0;
   top: 0;
   bottom: 0;
-  height: 100vh; }
+  height: 100vh;
+  -o-transition: opacity 4s ease;
+  -ms-transition: opacity 4s ease;
+  -moz-transition: opacity 4s ease;
+  -webkit-transition: opacity 4s ease;
+  transition: opacity 4s ease; }
+  .bg.bg-carousel {
+    opacity: 0; }
+  .bg.bg-carousel.m-visible {
+    opacity: 1; }
   @media (min-width: min-width) and (min-width: 701px) and (min-width: max-width) and (min-width: 1099px) {
     .bg {
       top: 55px;

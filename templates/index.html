@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
 {% block header %}
-  <div class="bg bg-index">
-    <div class="b-upcoming-show">
-      <a href="#tour-link" target="_blank">
-        Upcoming Show<br>
-        October 10th | 4425, Ave Laval. Montreal, QC</a>
-    </div> <!-- Edit Here -->
-  </div>
+  <div class="bg bg-carousel bg-index m-visible"></div>
+  <div class="bg bg-carousel bg-tour"></div>
+  <div class="bg bg-carousel bg-books"></div>
+  <div class="bg bg-carousel bg-specials"></div>
+
+  <div class="b-upcoming-show">
+    <a href="#tour-link" target="_blank">
+      Upcoming Show<br>
+      October 10th | 4425, Ave Laval. Montreal, QC</a>
+  </div> <!-- Edit Here -->
 {% endblock %}
 
 {% block content %}

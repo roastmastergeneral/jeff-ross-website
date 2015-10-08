@@ -10,12 +10,25 @@
   top: 0;
   bottom: 0;
   height: 100vh;
+  -o-transition: opacity 4s ease;
+  -ms-transition: opacity 4s ease;
+  -moz-transition: opacity 4s ease;
+  -webkit-transition: opacity 4s ease;
+  transition: opacity 4s ease;
 
-  @include breakpoint($tablet) { 
+  &.bg-carousel {
+      opacity: 0;
+  }
+
+  &.bg-carousel.m-visible {
+      opacity: 1;
+  }
+
+  @include breakpoint($tablet) {
     top: 55px;
     background-image: url(../img/bg-mobile-01.jpg);
   }
-  @include breakpoint($desktop) { 
+  @include breakpoint($desktop) {
     top: 0;
     background-image: url(../img/bg-01.jpg);
   }
@@ -25,17 +38,17 @@
   top: 0;
 }
 
-.bg-tour { 
+.bg-tour {
   background-image: url(../img/bg-mobile-02.jpg);
   @include breakpoint($tablet) { background-image: url(../img/bg-mobile-02.jpg); }
   @include breakpoint($desktop) { background-image: url(../img/bg-04.jpg); }
 }
-.bg-specials { 
+.bg-specials {
 
   @include breakpoint($desktop) { background-image: url(../img/bg-02.jpg); }
 
 }
-.bg-books { 
+.bg-books {
   @include breakpoint($desktop) { background-image: url(../img/bg-03.jpg); }
 }
 
@@ -52,12 +65,12 @@
     top: 0;
   }
 
-  @include breakpoint($tablet) { 
-    // height: 55px; 
+  @include breakpoint($tablet) {
+    // height: 55px;
     background-image: url(../img/criminals-banner.jpg);
   }
-  @include breakpoint($desktop) { 
-    height: 60px; 
+  @include breakpoint($desktop) {
+    height: 60px;
     background-image: url(../img/criminals-banner.jpg);
   }
 }

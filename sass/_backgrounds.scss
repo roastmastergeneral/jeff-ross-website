@@ -17,11 +17,11 @@
   transition: opacity 4s ease;
 
   &.bg-carousel {
-      opacity: 0;
+    opacity: 0;
   }
 
   &.bg-carousel.m-visible {
-      opacity: 1;
+    opacity: 1;
   }
 
   @include breakpoint($tablet) {
@@ -36,6 +36,22 @@
 
 .bg-index {
   top: 0;
+}
+
+.bg-index-1 {
+  background-image: url(../img/bg-01.jpg);
+}
+
+.bg-index-2 {
+  background-image: url(../img/Home_02-for-web.jpg);
+}
+
+.bg-index-3 {
+  background-image: url(../img/Home_02-for-web.jpg);
+}
+
+.bg-index-4 {
+  background-image: url(../img/Home_02-for-web.jpg);
 }
 
 .bg-tour {

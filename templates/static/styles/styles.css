@@ -80,7 +80,8 @@ ul, li {
 .header {
   padding: 100px 0;
   text-align: right;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .header .wrapper {
     position: relative;
     z-index: 1; }
@@ -210,6 +211,18 @@ nav {
 
 .bg-index {
   top: 0; }
+
+.bg-index-1 {
+  background-image: url(../img/bg-01.jpg); }
+
+.bg-index-2 {
+  background-image: url(../img/Home_02-for-web.jpg); }
+
+.bg-index-3 {
+  background-image: url(../img/Home_02-for-web.jpg); }
+
+.bg-index-4 {
+  background-image: url(../img/Home_02-for-web.jpg); }
 
 .bg-tour {
   background-image: url(../img/bg-mobile-02.jpg); }

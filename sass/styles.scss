@@ -5,6 +5,8 @@ $tablet: min-width 701px max-width 1099px;
 $desktop: min-width 1100px;
 
 
+$white-10: rgba(255,255,255,0.1);
+
 @mixin transition {
   transition: all .4s ease;
 }

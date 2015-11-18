@@ -1,4 +1,6 @@
 .b-stores {
+  margin-top: 20px;
+  
   img {
     max-width: 150px;
     max-height: 36px;
@@ -14,6 +16,8 @@
   .e-barnes-and-noble {margin-bottom: 25px;}
   .e-google-play {max-height: 42px;}
   .e-google-books {}
+
+  .e-vhx { max-height: 20px; }
 }
 
 .b-right :first-child {
@@ -21,7 +25,8 @@
   -webkit-order: 1;
 
    img {
-    margin-left: 20px;
+    // margin-left: 20px;
     margin-right: 0;
   }
 }
+

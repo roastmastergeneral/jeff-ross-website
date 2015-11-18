@@ -259,30 +259,33 @@ nav {
       height: 60px;
       background-image: url(../img/criminals-banner.jpg); } }
 
-.b-stores img {
-  max-width: 150px;
-  max-height: 36px;
-  margin: 0 20px 20px 0; }
-.b-stores .e-itunes {
-  max-height: 28px; }
-.b-stores .e-amazon-iv {
-  margin-bottom: 7px; }
-.b-stores .e-comedy-central {
-  margin-bottom: 17px; }
-.b-stores .e-vudu {
-  max-height: 30px; }
-.b-stores .e-amazon {
-  margin-bottom: 13px; }
-.b-stores .e-barnes-and-noble {
-  margin-bottom: 25px; }
-.b-stores .e-google-play {
-  max-height: 42px; }
+.b-stores {
+  margin-top: 20px; }
+  .b-stores img {
+    max-width: 150px;
+    max-height: 36px;
+    margin: 0 20px 20px 0; }
+  .b-stores .e-itunes {
+    max-height: 28px; }
+  .b-stores .e-amazon-iv {
+    margin-bottom: 7px; }
+  .b-stores .e-comedy-central {
+    margin-bottom: 17px; }
+  .b-stores .e-vudu {
+    max-height: 30px; }
+  .b-stores .e-amazon {
+    margin-bottom: 13px; }
+  .b-stores .e-barnes-and-noble {
+    margin-bottom: 25px; }
+  .b-stores .e-google-play {
+    max-height: 42px; }
+  .b-stores .e-vhx {
+    max-height: 20px; }
 
 .b-right :first-child {
   order: 1;
   -webkit-order: 1; }
   .b-right :first-child img {
-    margin-left: 20px;
     margin-right: 0; }
 
 .social-media {

@@ -110,7 +110,7 @@ nav {
   @media (max-width: 700px) {
     nav ul {
       position: fixed;
-      z-index: 1;
+      z-index: 10;
       top: 0;
       bottom: 0;
       left: 100%;
@@ -123,20 +123,20 @@ nav {
       padding: 0;
       background-color: rgba(0, 0, 0, 0.92);
       transition: all .4s ease; }
-      nav ul.active {
-        left: 0;
-        transition: all .4s ease; }
-        nav ul.active li {
+      nav ul li {
+        width: 80%;
+        text-align: center;
+        flex: 1;
+        display: flex; }
+        nav ul li + li {
+          border-top: 1px solid rgba(255, 255, 255, 0.2); }
+        nav ul li a {
           width: 100%;
-          text-align: center;
           flex: 1;
-          display: flex; }
-          nav ul.active li + li {
-            border-top: 1px solid rgba(255, 255, 255, 0.2); }
-          nav ul.active li a {
-            width: 100%;
-            flex: 1;
-            align-self: center; } }
+          align-self: center; }
+      nav ul.active {
+        left: 20%;
+        transition: all .4s ease; } }
   nav ul a {
     display: inline-block;
     text-decoration: none;
@@ -158,6 +158,17 @@ nav {
     @media (max-width: 700px) {
       nav .fa-bars {
         display: inline-block; } }
+
+#overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: none; }
+  #overlay.m-active {
+    display: block; }
 
 @media only screen and (max-width: 40em) {
   .header {
@@ -181,78 +192,89 @@ nav {
         display: inline-block; } }
 .bg {
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: top center;
   background-color: #202020;
   background-size: cover;
   position: absolute;
-  background-image: url(../img/bg-mobile-01.jpg);
+  background-image: url("../img/bgs/specials-2-m.jpg");
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   height: 100vh;
-  -o-transition: opacity 4s ease;
-  -ms-transition: opacity 4s ease;
-  -moz-transition: opacity 4s ease;
-  -webkit-transition: opacity 4s ease;
-  transition: opacity 4s ease; }
+  -o-transition: opacity 1s ease;
+  -ms-transition: opacity 1s ease;
+  -moz-transition: opacity 1s ease;
+  -webkit-transition: opacity 1s ease;
+  transition: opacity 1s ease; }
   .bg.bg-carousel {
     opacity: 0; }
   .bg.bg-carousel.m-visible {
     opacity: 1; }
-  @media (min-width: min-width) and (min-width: 701px) and (min-width: max-width) and (min-width: 1099px) {
+  @media (min-width: 701px) {
     .bg {
-      top: 55px;
-      background-image: url(../img/bg-mobile-01.jpg); } }
+      top: 55px; } }
   @media (min-width: 1100px) {
     .bg {
-      top: 0;
-      background-image: url(../img/bg-01.jpg); } }
+      top: 50px;
+      background-image: url("../img/bgs/home-merch-1.jpg"); } }
 
-.bg-index {
+.bg-home-merch-1,
+.bg-home-merch-2,
+.bg-home-merch-3 {
+  top: -50px; }
+
+.bg-home-merch-1 {
+  background-image: url("../img/bgs/home-merch-1.jpg"); }
+
+.bg-home-merch-2 {
+  background-image: url("../img/bgs/home-merch-2.jpg"); }
+
+.bg-home-merch-3 {
+  background-image: url("../img/bgs/home-merch-3.jpg"); }
+
+.bg-about-videos-1 {
+  background-image: url("../img/bgs/about-1.jpg"); }
+
+.bg-about-videos-2 {
+  background-image: url("../img/bgs/about-2.jpg"); }
+
+.bg-contact-tour-1,
+.bg-contact-tour-2,
+.bg-contact-tour-3 {
   top: 0; }
 
-.bg-index-1 {
-  background-image: url(../img/bg-01.jpg); }
+.bg-contact-tour-1 {
+  background-image: url("../img/bgs/contact-tour-1.jpg"); }
 
-.bg-index-2 {
-  background-image: url(../img/Home_02-for-web.jpg); }
+.bg-contact-tour-2 {
+  background-image: url("../img/bgs/contact-tour-2.jpg"); }
 
-.bg-index-3 {
-  background-image: url(../img/Home_03-for-web.jpg); }
+.bg-contact-tour-3 {
+  background-image: url("../img/bgs/contact-tour-3.jpg"); }
 
-.bg-index-4 {
-  background-image: url(../img/Home_04-for-web.jpg); }
+.bg-specials-press-1 {
+  background-image: url("../img/bgs/specials-1.jpg"); }
 
-.bg-tour {
-  background-image: url(../img/bg-mobile-02.jpg); }
-  @media (min-width: min-width) and (min-width: 701px) and (min-width: max-width) and (min-width: 1099px) {
-    .bg-tour {
-      background-image: url(../img/bg-mobile-02.jpg); } }
-  @media (min-width: 1100px) {
-    .bg-tour {
-      background-image: url(../img/bg-04.jpg); } }
+.bg-specials-press-2 {
+  background-image: url("../img/bgs/specials-4.jpg"); }
 
-@media (min-width: 1100px) {
-  .bg-specials {
-    background-image: url(../img/bg-02.jpg); } }
-
-@media (min-width: 1100px) {
-  .bg-books {
-    background-image: url(../img/bg-03.jpg); } }
+.bg-specials-press-3 {
+  background-image: url("../img/bgs/specials-5.jpg"); }
 
 .b-criminals-banner {
   background-image: url(../img/criminals-banner2.jpg);
   background-size: cover;
   display: block;
-  height: 40px;
+  min-height: 40px;
   width: 100%;
   background-position: center; }
   .b-criminals-banner.m-top {
     position: absolute;
     top: 0; }
-  @media (min-width: min-width) and (min-width: 701px) and (min-width: max-width) and (min-width: 1099px) {
+  @media (min-width: 701px) {
     .b-criminals-banner {
+      height: 55px;
       background-image: url(../img/criminals-banner.jpg); } }
   @media (min-width: 1100px) {
     .b-criminals-banner {
@@ -312,7 +334,8 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    border: 0; }
 
 .videos li + li {
   margin-top: 50px; }
@@ -352,6 +375,39 @@ nav {
   .tour-dates .link {
     width: 7%; }
 
+@media (max-width: 700px) {
+  .tour-dates {
+    display: block;
+    width: 100%;
+    font-size: 14px; }
+    .tour-dates thead {
+      display: none; }
+    .tour-dates tbody {
+      width: 100%; }
+    .tour-dates tr {
+      display: block;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+      padding: 5px 0; }
+    .tour-dates td {
+      display: inline-block;
+      border-bottom: 0; }
+    .tour-dates .date {
+      width: 30%; }
+    .tour-dates .time {
+      width: 65%; }
+    .tour-dates .tour {
+      display: none; }
+    .tour-dates .venue {
+      width: 100%; }
+    .tour-dates .location {
+      width: 100%; }
+    .tour-dates .link {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 18px; } }
+
 .b-upcoming-show {
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.3);
@@ -369,7 +425,7 @@ nav {
     color: white; }
   .b-upcoming-show a:hover {
     text-decoration: underline; }
-  @media (min-width: min-width) and (min-width: 701px) and (min-width: max-width) and (min-width: 1099px) {
+  @media (min-width: 701px) {
     .b-upcoming-show {
       font-size: 16px; } }
   @media (min-width: 1100px) {
@@ -463,7 +519,7 @@ nav {
         @media (max-width: 700px) {
           .b-books .b-description .e-quote p:before {
             left: 10px; } }
-        @media (min-width: min-width) and (min-width: 701px) and (min-width: max-width) and (min-width: 1099px) {
+        @media (min-width: 701px) {
           .b-books .b-description .e-quote p:before {
             left: 0; } }
         @media (min-width: 1100px) {
@@ -472,7 +528,7 @@ nav {
       .b-books .b-description .e-quote p:after {
         right: -10px;
         background-image: url(../img/quotes.png); }
-        @media (min-width: min-width) and (min-width: 701px) and (min-width: max-width) and (min-width: 1099px) {
+        @media (min-width: 701px) {
           .b-books .b-description .e-quote p:after {
             right: 0; } }
     .b-books .b-description .e-quote span {

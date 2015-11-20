@@ -8,6 +8,7 @@
     text-align: left;
     background-color: rgba(255,255,255, 0.1);
     padding: 8px 10px;
+
   }
 
   td {
@@ -15,7 +16,7 @@
     padding: 8px 10px;
 
     a,
-    .fa {color: #aaa;}
+    .fa { color: #aaa; }
   }
 
   tr:hover {
@@ -25,21 +26,64 @@
     td {
       color: #fff;
 
-      a, .fa {color: #fff;}
+      a, .fa { color: #fff; }
     }
   }
 
-  .date { width: 15%;}
-  .time {width: 15%;}
-  .tour {width: 15%;}
-  .venue {width: 31%;}
-  .location {width: 17%;}
-  .link {width: 7%;}
+  .date     { width: 15%; }
+  .time     { width: 15%; }
+  .tour     { width: 15%; }
+  .venue    { width: 31%; }
+  .location { width: 17%; }
+  .link     { width:  7%; } 
 }
 
-// Medium screens
-@media only screen and (max-width: 40em) {
+
+.tour-dates {
+  @include breakpoint($mobile) {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    
+    thead { display: none; }
+    tbody { width: 100%; }
+
+    tr { 
+      display: block;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      position: relative;
+      padding: 5px 0;
+    }
+
+    td { 
+      display: inline-block; 
+      border-bottom: 0;
+    }
+
+    .date     { width: 30%; }
+    .time     { width: 65%; }
+    .tour     { display: none; }
+    .venue    { width: 100%; }
+    .location { width: 100%; }
+    .link     { 
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 18px;
+    } 
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 .b-upcoming-show {
   padding: 10px;
@@ -55,8 +99,8 @@
   width: 100%;
   font-size: 12px;
 
-  a {color: white;}
-  a:hover {text-decoration: underline;}
+  a { color: white; }
+  a:hover { text-decoration: underline; }
 
   @include breakpoint($tablet) {font-size: 16px;}
   @include breakpoint($desktop) {font-size: 16px;}

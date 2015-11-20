@@ -1,78 +1,63 @@
 .bg {
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: top center;
   background-color: #202020;
   background-size: cover;
   position: absolute;
-  background-image: url(../img/bg-mobile-01.jpg);
+  background-image: url("../img/bgs/specials-2-m.jpg");
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   height: 100vh;
-  -o-transition: opacity 4s ease;
-  -ms-transition: opacity 4s ease;
-  -moz-transition: opacity 4s ease;
-  -webkit-transition: opacity 4s ease;
-  transition: opacity 4s ease;
+  -o-transition: opacity 1s ease;
+  -ms-transition: opacity 1s ease;
+  -moz-transition: opacity 1s ease;
+  -webkit-transition: opacity 1s ease;
+  transition: opacity 1s ease;
 
-  &.bg-carousel {
-    opacity: 0;
-  }
+  &.bg-carousel { opacity: 0; }
+  &.bg-carousel.m-visible { opacity: 1; }
 
-  &.bg-carousel.m-visible {
-    opacity: 1;
-  }
+  @include breakpoint($tablet) { top: 55px; }
 
-  @include breakpoint($tablet) {
-    top: 55px;
-    background-image: url(../img/bg-mobile-01.jpg);
-  }
   @include breakpoint($desktop) {
-    top: 0;
-    background-image: url(../img/bg-01.jpg);
+    top: 50px;
+    background-image: url("../img/bgs/home-merch-1.jpg");
   }
-}
-
-.bg-index {
-  top: 0;
-}
-
-.bg-index-1 {
-  background-image: url(../img/bg-01.jpg);
-}
-
-.bg-index-2 {
-  background-image: url(../img/Home_02-for-web.jpg);
-}
-
-.bg-index-3 {
-  background-image: url(../img/Home_03-for-web.jpg);
-}
-
-.bg-index-4 {
-  background-image: url(../img/Home_04-for-web.jpg);
-}
-
-.bg-tour {
-  background-image: url(../img/bg-mobile-02.jpg);
-  @include breakpoint($tablet) { background-image: url(../img/bg-mobile-02.jpg); }
-  @include breakpoint($desktop) { background-image: url(../img/bg-04.jpg); }
-}
-.bg-specials {
-
-  @include breakpoint($desktop) { background-image: url(../img/bg-02.jpg); }
 
 }
-.bg-books {
-  @include breakpoint($desktop) { background-image: url(../img/bg-03.jpg); }
-}
+
+.bg-home-merch-1,
+.bg-home-merch-2,
+.bg-home-merch-3 { top: -50px; }
+
+
+.bg-home-merch-1 { background-image: url("../img/bgs/home-merch-1.jpg"); }
+.bg-home-merch-2 { background-image: url("../img/bgs/home-merch-2.jpg"); }
+.bg-home-merch-3 { background-image: url("../img/bgs/home-merch-3.jpg"); }
+
+.bg-about-videos-1 { background-image: url("../img/bgs/about-1.jpg"); }
+.bg-about-videos-2 { background-image: url("../img/bgs/about-2.jpg"); }
+
+.bg-contact-tour-1,
+.bg-contact-tour-2,
+.bg-contact-tour-3 { top: 0; }
+
+.bg-contact-tour-1 { background-image: url("../img/bgs/contact-tour-1.jpg"); }
+.bg-contact-tour-2 { background-image: url("../img/bgs/contact-tour-2.jpg"); }
+.bg-contact-tour-3 { background-image: url("../img/bgs/contact-tour-3.jpg"); }
+
+.bg-specials-press-1 { background-image: url("../img/bgs/specials-1.jpg"); }
+.bg-specials-press-2 { background-image: url("../img/bgs/specials-4.jpg"); }
+.bg-specials-press-3 { background-image: url("../img/bgs/specials-5.jpg"); }
+
 
 .b-criminals-banner {
   background-image: url(../img/criminals-banner2.jpg);
   background-size: cover;
   display: block;
-  height: 40px;
+  min-height: 40px;
   width: 100%;
   background-position: center;
 
@@ -82,7 +67,7 @@
   }
 
   @include breakpoint($tablet) {
-    // height: 55px;
+    height: 55px;
     background-image: url(../img/criminals-banner.jpg);
   }
   @include breakpoint($desktop) {

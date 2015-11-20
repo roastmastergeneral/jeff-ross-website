@@ -23,7 +23,14 @@ $(document).ready(function() {
     //
 
     $('.header .fa-bars').click(function() {
+       $('#overlay').addClass('m-active');
+
        $('.header nav ul').addClass('active');
+    });
+
+    $('#overlay').click(function() {
+       $(this).removeClass('m-active');
+       $('.header nav ul').removeClass('active');
     });
 
     if ($('.press').length) {

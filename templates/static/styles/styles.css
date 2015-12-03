@@ -344,8 +344,7 @@ nav {
   color: #ddd;
   width: 100%;
   table-layout: fixed;
-  border-spacing: 0;
-  display: none; }
+  border-spacing: 0; }
   .tour-dates.m-show {
     display: table; }
   .tour-dates th {

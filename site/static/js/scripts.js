@@ -134,10 +134,10 @@ $(document).ready(function() {
         });
     }
 
-    if ($('.tour-dates tbody').length > 1) {
-        $('.tour-dates').addClass('m-show');
-        console.log($('.tour-dates tbody').length)
-    }
+    // if ($('.tour-dates tbody').length > 1) {
+    //     $('.tour-dates').addClass('m-show');
+    //     console.log($('.tour-dates tbody').length)
+    // }
 
     if ($('.videos').length) {
         $.get('https://www.googleapis.com/youtube/v3/playlistItems', {

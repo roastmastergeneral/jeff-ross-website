@@ -344,7 +344,10 @@ nav {
   color: #ddd;
   width: 100%;
   table-layout: fixed;
-  border-spacing: 0; }
+  border-spacing: 0;
+  display: none; }
+  .tour-dates.m-show {
+    display: table; }
   .tour-dates th {
     text-align: left;
     background-color: rgba(255, 255, 255, 0.1);
@@ -407,6 +410,17 @@ nav {
       top: 10px;
       right: 15px;
       font-size: 18px; } }
+
+.no-tours h2 {
+  text-align: center;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.1);
+  margin-top: -20px;
+  line-height: 1.6; }
+  .no-tours h2 a {
+    color: rgba(255, 255, 255, 0.1); }
+  .no-tours h2 a:hover {
+    color: #fff; }
 
 .b-upcoming-show {
   padding: 10px;

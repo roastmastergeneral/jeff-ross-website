@@ -53,7 +53,7 @@ $(document).ready(function() {
                     }
                 }
 
-                txt += obj.tour + ' | ';
+                txt += 'next show: ';
                 txt += moment(obj.date).format('MMM Do') + ' ';
                 txt += obj.time + ' | ';
                 txt += obj.venue + ' - ';
@@ -62,7 +62,7 @@ $(document).ready(function() {
                 $a.html(txt);
             });
         });
-    }
+    } 
 
     if ($('.press').length) {
         db.child('press').orderByChild('date').limitToLast(50).once('value', function(snapshot) {
@@ -104,6 +104,7 @@ $(document).ready(function() {
     }
 
     if ($('.tour-dates').length) {
+
         db.child('tour-dates').orderByChild('date').startAt(today).limitToLast(50).once('value', function(snapshot) {
             snapshot.forEach(function(data) {
                 var obj = data.val(),
@@ -131,6 +132,11 @@ $(document).ready(function() {
                 $('.tour-dates tbody').append($tr);
             });
         });
+    }
+
+    if ($('.tour-dates tbody').length > 1) {
+        $('.tour-dates').addClass('m-show');
+        console.log($('.tour-dates tbody').length)
     }
 
     if ($('.videos').length) {

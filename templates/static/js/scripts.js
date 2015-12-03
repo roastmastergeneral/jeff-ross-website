@@ -1,8 +1,9 @@
 $(document).ready(function() {
-    var db = null;
+    var db = null,
+        today = Date.parse(new Date().toJSON().slice(0, 10));
 
     if (location.hostname == 'roastmastergeneral.com') {
-        db = new Firebase('https://jeff-ross.firebaseio.com/');
+        db = new Firebase('https://jeff-ross-prd.firebaseio.com/');
 
     } else {
         db = new Firebase('https://jeff-ross-dev.firebaseio.com/');
@@ -19,7 +20,7 @@ $(document).ready(function() {
     }
 
     //
-    // Page.
+    // Pages.
     //
 
     $('.header .fa-bars').click(function() {
@@ -33,10 +34,40 @@ $(document).ready(function() {
        $('.header nav ul').removeClass('active');
     });
 
+
+
+
+    if ($('.b-upcoming-show').length) {
+        db.child('tour-dates').orderByChild('date').startAt(today).limitToLast(1).once('value', function(snapshot) {
+            snapshot.forEach(function(data) {
+                var obj = data.val(),
+                    txt = '',
+                    $a = $('.b-upcoming-show a');
+
+                if (obj.link) {
+                    if (obj.link.indexOf('//') > -1) {
+                        $a.attr('href', obj.link);
+
+                    } else {
+                        $a.attr('href', '//' + obj.link);
+                    }
+                }
+
+                txt += obj.tour + ' | ';
+                txt += moment(obj.date).format('MMM Do') + ' ';
+                txt += obj.time + ' | ';
+                txt += obj.venue + ' - ';
+                txt += obj.location;
+
+                $a.html(txt);
+            });
+        });
+    }
+
     if ($('.press').length) {
         db.child('press').orderByChild('date').limitToLast(50).once('value', function(snapshot) {
-            for (var oid in snapshot.val()) {
-                var obj = snapshot.val()[oid],
+            snapshot.forEach(function(data) {
+                var obj = data.val(),
                     $li = $('<li/>').addClass('press-item'),
                     $d1 = $('<div/>').addClass('press-media m-text'),
                     $d2 = $('<div/>').addClass('press-content'),
@@ -53,7 +84,7 @@ $(document).ready(function() {
                 }
 
                 $d3.append($('<span/>').addClass('press-publisher').text(obj.publisher));
-                $d3.append($('<span/>').addClass('press-date').text(obj.date));
+                $d3.append($('<span/>').addClass('press-date').text(moment(obj.date).format('MM/DD/YYYY')));
                 $d2.append($('<div>').addClass('press-title').text(obj.title));
                 $d2.append($d3);
 
@@ -67,17 +98,15 @@ $(document).ready(function() {
                     $d1.append($('<i/>').addClass('fa fa-volume-up'));
                 }
 
-                $('.press').append($li.append($a.append($d1).append($d2)));
-            }
+                $('.press').prepend($li.append($a.append($d1).append($d2)));
+            });
         });
     }
 
     if ($('.tour-dates').length) {
-        db.child('tour-dates').once('value', function(snapshot) {
-            var today = Date.parse(new Date().toJSON().slice(0, 10));
-
-            for (var oid in snapshot.val()) {
-                var obj = snapshot.val()[oid],
+        db.child('tour-dates').orderByChild('date').startAt(today).limitToLast(50).once('value', function(snapshot) {
+            snapshot.forEach(function(data) {
+                var obj = data.val(),
                     $tr = $('<tr/>'),
                     $a = $('<a/>').attr('target', '_blank');
 
@@ -90,19 +119,17 @@ $(document).ready(function() {
                     }
                 }
 
-                if (today < Date.parse(obj.date)) {
-                    $a.append($('<i/>').addClass('fa fa-link'));
+                $a.append($('<i/>').addClass('fa fa-link'));
 
-                    $tr.append($('<td/>').addClass('date').text(obj.date));
-                    $tr.append($('<td/>').addClass('time').text(obj.time));
-                    $tr.append($('<td/>').addClass('tour').text(obj.show));
-                    $tr.append($('<td/>').addClass('venue').text(obj.venue));
-                    $tr.append($('<td/>').addClass('location').text(obj.city));
-                    $tr.append($('<td/>').addClass('link').append($a));
+                $tr.append($('<td/>').addClass('date').text(moment(obj.date).format('MM/DD/YYYY')));
+                $tr.append($('<td/>').addClass('time').text(obj.time));
+                $tr.append($('<td/>').addClass('tour').text(obj.tour));
+                $tr.append($('<td/>').addClass('venue').text(obj.venue));
+                $tr.append($('<td/>').addClass('location').text(obj.location));
+                $tr.append($('<td/>').addClass('link').append($a));
 
-                    $('.tour-dates tbody').append($tr);
-                }
-            }
+                $('.tour-dates tbody').append($tr);
+            });
         });
     }
 
@@ -191,7 +218,7 @@ $(document).ready(function() {
             var obj = snapshot.val(),
                 $tr = $('<tr/>');
 
-            $tr.append($('<td>').addClass('m-ellipsis date').text(obj.date));
+            $tr.append($('<td>').addClass('m-ellipsis date').text(moment(obj.date).format('MM/DD/YYYY')));
             $tr.append($('<td>').addClass('m-ellipsis type m-capitalize').text(obj.type));
             $tr.append($('<td>').addClass('m-ellipsis title').text(obj.title));
             $tr.append($('<td>').addClass('m-ellipsis publisher').text(obj.publisher));
@@ -234,7 +261,13 @@ $(document).ready(function() {
         var doc = {};
 
         $(this).find(':input').each(function() {
-            doc[$(this).attr('name')] = $(this).val();
+            var val = $(this).val();
+
+            if ($(this).attr('name') == 'date') {
+                val = Date.parse(val);
+            }
+
+            doc[$(this).attr('name')] = val;
         });
 
         db.child('press').push(doc);
@@ -251,7 +284,7 @@ $(document).ready(function() {
             $tr = $(this).data('tr'),
             doc = {};
 
-        doc.date = $('.modal-edit-press .date').val();
+        doc.date = Date.parse($('.modal-edit-press .date').val());
         doc.type = $('.modal-edit-press .type').val();
         doc.title = $('.modal-edit-press .title').val();
         doc.publisher = $('.modal-edit-press .publisher').val();
@@ -275,11 +308,11 @@ $(document).ready(function() {
     // Tour.
     //
     if ($('#admin-tour').length) {
-        db.child('tour-dates').on('child_added', function(snapshot) {
+        db.child('tour-dates').orderByChild('date').on('child_added', function(snapshot) {
             var obj = snapshot.val(),
                 $tr = $('<tr/>');
 
-            $tr.append($('<td>').addClass('m-ellipsis date').text(obj.date));
+            $tr.append($('<td>').addClass('m-ellipsis date').text(moment(obj.date).format('MM/DD/YYYY')));
             $tr.append($('<td>').addClass('m-ellipsis tour').text(obj.tour));
             $tr.append($('<td>').addClass('m-ellipsis venue').text(obj.venue));
             $tr.append($('<td>').addClass('m-ellipsis location').text(obj.location));
@@ -324,7 +357,13 @@ $(document).ready(function() {
         var doc = {};
 
         $(this).find(':input').each(function() {
-            doc[$(this).attr('name')] = $(this).val();
+            var val = $(this).val();
+
+            if ($(this).attr('name') == 'date') {
+                val = Date.parse(val);
+            }
+
+            doc[$(this).attr('name')] = val;
         });
 
         db.child('tour-dates').push(doc);
@@ -341,7 +380,7 @@ $(document).ready(function() {
             $tr = $(this).data('tr'),
             doc = {};
 
-        doc.date = $('.modal-edit-tour .date').val();
+        doc.date = Date.parse($('.modal-edit-tour .date').val());
         doc.tour = $('.modal-edit-tour .tour').val();
         doc.venue = $('.modal-edit-tour .venue').val();
         doc.location = $('.modal-edit-tour .location').val();

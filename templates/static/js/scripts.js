@@ -2,7 +2,7 @@ $(document).ready(function() {
     var db = null,
         today = Date.parse(new Date().toJSON().slice(0, 10));
 
-    if (location.hostname == 'roastmastergeneral.com') {
+    if (location.hostname == 'roastmastergeneral.com' || location.hostname == 'jeffreyross.com' || location.hostname == 'jeffreyrosshomemovie.com') {
         db = new Firebase('https://jeff-ross-prd.firebaseio.com/');
 
     } else {

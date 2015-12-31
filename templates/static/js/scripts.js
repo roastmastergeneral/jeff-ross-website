@@ -34,11 +34,8 @@ $(document).ready(function() {
        $('.header nav ul').removeClass('active');
     });
 
-
-
-
     if ($('.b-upcoming-show').length) {
-        db.child('tour-dates').orderByChild('date').startAt(today).limitToLast(1).once('value', function(snapshot) {
+        db.child('tour-dates').orderByChild('date').startAt(today).limitToFirst(1).once('value', function(snapshot) {
             snapshot.forEach(function(data) {
                 var obj = data.val(),
                     txt = '',
@@ -62,7 +59,7 @@ $(document).ready(function() {
                 $a.html(txt);
             });
         });
-    } 
+    }
 
     if ($('.press').length) {
         db.child('press').orderByChild('date').limitToLast(50).once('value', function(snapshot) {
@@ -104,8 +101,7 @@ $(document).ready(function() {
     }
 
     if ($('.tour-dates').length) {
-
-        db.child('tour-dates').orderByChild('date').startAt(today).limitToLast(50).once('value', function(snapshot) {
+        db.child('tour-dates').orderByChild('date').startAt(today).limitToFirst(50).once('value', function(snapshot) {
             snapshot.forEach(function(data) {
                 var obj = data.val(),
                     $tr = $('<tr/>'),

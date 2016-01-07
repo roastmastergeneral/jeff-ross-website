@@ -506,6 +506,8 @@ nav {
   font-size: 21px; }
   .b-books .b-description > p {
     text-align: left; }
+  .b-books .b-description > p:first-child {
+    margin: 0; }
   @media (min-width: 1100px) {
     .b-books .b-description {
       margin-left: 20px; } }

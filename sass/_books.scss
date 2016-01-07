@@ -10,6 +10,10 @@
         text-align: left;
       }
 
+      > p:first-child {
+        margin: 0;
+      }
+
       @include breakpoint($desktop) { margin-left: 20px; }
 
 

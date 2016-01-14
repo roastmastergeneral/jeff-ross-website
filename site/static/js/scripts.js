@@ -116,7 +116,8 @@ $(document).ready(function() {
                     }
                 }
 
-                $a.append($('<i/>').addClass('fa fa-link'));
+                // $a.append($('<i/>').addClass('fa fa-shopping-cart'));
+                $a.append('BUY');
 
                 $tr.append($('<td/>').addClass('date').text(moment(obj.date).format('MM/DD/YYYY')));
                 $tr.append($('<td/>').addClass('time').text(obj.time));

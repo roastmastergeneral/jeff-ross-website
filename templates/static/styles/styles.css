@@ -403,12 +403,7 @@ nav {
     .tour-dates .venue {
       width: 100%; }
     .tour-dates .location {
-      width: 100%; }
-    .tour-dates .link {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 18px; } }
+      width: 100%; } }
 
 .no-tours h2 {
   text-align: center;
@@ -447,6 +442,11 @@ nav {
   @media (min-width: 1100px) {
     .b-upcoming-show br {
       display: none; } }
+
+.tour-dates .link a {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3px 8px; }
 
 .press {
   margin: 0;

@@ -263,7 +263,7 @@ nav {
   background-image: url("../img/bgs/specials-5.jpg"); }
 
 .b-criminals-banner {
-  background-image: url(../img/criminals-banner2.jpg);
+  background-image: url(../img/battle-banner-mobile.jpg);
   background-size: cover;
   display: block;
   min-height: 40px;
@@ -275,11 +275,11 @@ nav {
   @media (min-width: 701px) {
     .b-criminals-banner {
       height: 55px;
-      background-image: url(../img/criminals-banner.jpg); } }
+      background-image: url(../img/battle-banner.jpg); } }
   @media (min-width: 1100px) {
     .b-criminals-banner {
       height: 60px;
-      background-image: url(../img/criminals-banner.jpg); } }
+      background-image: url(../img/battle-banner.jpg); } }
 
 .b-stores {
   margin-top: 20px; }

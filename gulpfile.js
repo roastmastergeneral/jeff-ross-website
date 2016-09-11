@@ -46,6 +46,11 @@ gulp.task('image', function () {
     .pipe(gulp.dest('public/img'));
 });
 
+gulp.task('cname', function () {
+  return gulp.src('source/templates/CNAME')
+    .pipe(gulp.dest('public'));
+});
+
 gulp.task('js', function () {
   return gulp.src('source/static/**/*.js')
     .pipe(uglify())
@@ -75,7 +80,7 @@ gulp.task('push-gh-pages', function () {
 gulp.task('deploy', function (callback) {
   runSequence(
     'clean',
-    ['sass', 'js', 'image', 'nunjucks', 'vendor'],
+    ['sass', 'js', 'image', 'nunjucks', 'vendor', 'cname'],
     'push-gh-master',
     'push-gh-pages',
     callback

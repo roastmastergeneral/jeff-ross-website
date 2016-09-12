@@ -60,7 +60,7 @@ $white-10: rgba(255,255,255,0.1);
   }
 
   > div > img {
-    width: 170px;
+    width: 240px;
     margin-right: 20px;
   }
 
@@ -70,6 +70,8 @@ $white-10: rgba(255,255,255,0.1);
     color: white;
   }
 }
+
+.b-right > div > img { margin-left: 20px; }
 
 .b-description {
     color: white;

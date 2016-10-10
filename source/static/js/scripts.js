@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var db = null,
-        today = Date.parse(new Date().toJSON().slice(0, 10));
+        today = moment.utc().startOf('day');
 
     if (location.hostname == 'roastmastergeneral.com' || location.hostname == 'jeffreyross.com' || location.hostname == 'jeffreyrosshomemovie.com') {
         db = new Firebase('https://jeff-ross-prd.firebaseio.com/');
@@ -51,7 +51,7 @@ $(document).ready(function() {
                 }
 
                 txt += 'next show: ';
-                txt += moment(obj.date).format('MMM Do') + ' ';
+                txt += moment.utc(parseInt(obj.date)).format('MMM Do') + ' ';
                 txt += obj.time + ' | ';
                 txt += obj.venue + ' - ';
                 txt += obj.location;
@@ -81,7 +81,7 @@ $(document).ready(function() {
                 }
 
                 $d3.append($('<span/>').addClass('press-publisher').text(obj.publisher));
-                $d3.append($('<span/>').addClass('press-date').text(moment(obj.date).format('MM/DD/YYYY')));
+                $d3.append($('<span/>').addClass('press-date').text(moment.utc(parseInt(obj.date)).format('MM/DD/YYYY')));
                 $d2.append($('<div>').addClass('press-title').text(obj.title));
                 $d2.append($d3);
 
@@ -119,7 +119,7 @@ $(document).ready(function() {
                 // $a.append($('<i/>').addClass('fa fa-shopping-cart'));
                 $a.append('BUY');
 
-                $tr.append($('<td/>').addClass('date').text(moment(obj.date).format('MM/DD/YYYY')));
+                $tr.append($('<td/>').addClass('date').text(moment.utc(parseInt(obj.date)).format('MM/DD/YYYY')));
                 $tr.append($('<td/>').addClass('time').text(obj.time));
                 $tr.append($('<td/>').addClass('tour').text(obj.tour));
                 $tr.append($('<td/>').addClass('venue').text(obj.venue));
@@ -221,7 +221,7 @@ $(document).ready(function() {
             var obj = snapshot.val(),
                 $tr = $('<tr/>');
 
-            $tr.append($('<td>').addClass('m-ellipsis date').text(moment(obj.date).format('MM/DD/YYYY')));
+            $tr.append($('<td>').addClass('m-ellipsis date').text(moment.utc(parseInt(obj.date)).format('MM/DD/YYYY')));
             $tr.append($('<td>').addClass('m-ellipsis type m-capitalize').text(obj.type));
             $tr.append($('<td>').addClass('m-ellipsis title').text(obj.title));
             $tr.append($('<td>').addClass('m-ellipsis publisher').text(obj.publisher));
@@ -267,7 +267,9 @@ $(document).ready(function() {
             var val = $(this).val();
 
             if ($(this).attr('name') == 'date') {
-                val = Date.parse(val);
+                val = val.split('/');
+                val = [val[2], val[0], val[1]].join('-');
+                val = parseInt(moment.utc(val).format('x'));
             }
 
             doc[$(this).attr('name')] = val;
@@ -285,9 +287,14 @@ $(document).ready(function() {
     $('#admin .modal-edit-press').submit(function() {
         var $mod = $('.modal-edit-press'),
             $tr = $(this).data('tr'),
+            aux = $('.modal-edit-press .date').val(),
             doc = {};
 
-        doc.date = Date.parse($('.modal-edit-press .date').val());
+        aux = aux.split('/');
+        aux = [aux[2], aux[0], aux[1]].join('-');
+        aux = parseInt(moment.utc(aux).format('x'));
+
+        doc.date = aux;
         doc.type = $('.modal-edit-press .type').val();
         doc.title = $('.modal-edit-press .title').val();
         doc.publisher = $('.modal-edit-press .publisher').val();
@@ -295,7 +302,7 @@ $(document).ready(function() {
 
         db.child('press').child($(this).data('oid')).set(doc);
 
-        $tr.children().eq(0).text(doc.date);
+        $tr.children().eq(0).text($('.modal-edit-press .date').val());
         $tr.children().eq(1).text(doc.type);
         $tr.children().eq(2).text(doc.title);
         $tr.children().eq(3).text(doc.publisher);
@@ -315,7 +322,7 @@ $(document).ready(function() {
             var obj = snapshot.val(),
                 $tr = $('<tr/>');
 
-            $tr.append($('<td>').addClass('m-ellipsis date').text(moment(obj.date).format('MM/DD/YYYY')));
+            $tr.append($('<td>').addClass('m-ellipsis date').text(moment.utc(parseInt(obj.date)).format('MM/DD/YYYY')));
             $tr.append($('<td>').addClass('m-ellipsis tour').text(obj.tour));
             $tr.append($('<td>').addClass('m-ellipsis venue').text(obj.venue));
             $tr.append($('<td>').addClass('m-ellipsis location').text(obj.location));
@@ -363,7 +370,9 @@ $(document).ready(function() {
             var val = $(this).val();
 
             if ($(this).attr('name') == 'date') {
-                val = Date.parse(val);
+                val = val.split('/');
+                val = [val[2], val[0], val[1]].join('-');
+                val = parseInt(moment.utc(val).format('x'));
             }
 
             doc[$(this).attr('name')] = val;
@@ -381,9 +390,14 @@ $(document).ready(function() {
     $('#admin .modal-edit-tour').submit(function() {
         var $mod = $('.modal-edit-tour'),
             $tr = $(this).data('tr'),
+            aux = $('.modal-edit-tour .date').val(),
             doc = {};
 
-        doc.date = Date.parse($('.modal-edit-tour .date').val());
+        aux = aux.split('/');
+        aux = [aux[2], aux[0], aux[1]].join('-');
+        aux = parseInt(moment.utc(aux).format('x'));
+
+        doc.date = aux;
         doc.tour = $('.modal-edit-tour .tour').val();
         doc.venue = $('.modal-edit-tour .venue').val();
         doc.location = $('.modal-edit-tour .location').val();
@@ -392,7 +406,7 @@ $(document).ready(function() {
 
         db.child('tour-dates').child($(this).data('oid')).set(doc);
 
-        $tr.children().eq(0).text(doc.date);
+        $tr.children().eq(0).text($('.modal-edit-tour .date').val());
         $tr.children().eq(1).text(doc.tour);
         $tr.children().eq(2).text(doc.venue);
         $tr.children().eq(3).text(doc.location);

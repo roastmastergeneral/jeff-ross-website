@@ -38,7 +38,7 @@
   .tour     { width: 15%; }
   .venue    { width: 31%; }
   .location { width: 17%; }
-  .link     { width:  7%; } 
+  .link     { width:  7%; }
 }
 
 
@@ -47,19 +47,19 @@
     display: block;
     width: 100%;
     font-size: 14px;
-    
+
     thead { display: none; }
     tbody { width: 100%; }
 
-    tr { 
+    tr {
       display: block;
       border-bottom: 1px solid rgba(255,255,255,0.15);
       position: relative;
       padding: 5px 0;
     }
 
-    td { 
-      display: inline-block; 
+    td {
+      display: inline-block;
       border-bottom: 0;
     }
 
@@ -68,7 +68,7 @@
     .tour     { display: none; }
     .venue    { width: 100%; }
     .location { width: 100%; }
-    .link a    { 
+    .link a    {
       // padding: 5px 8px;
       // background-color: $white-10;
       // display: inline-block;
@@ -112,11 +112,11 @@
   a { color: white; }
   a:hover { text-decoration: underline; }
 
-  @include breakpoint($tablet) {font-size: 16px;}
-  @include breakpoint($desktop) {font-size: 16px;}
+  @include breakpoint($tablet) { font-size: 16px; }
+  @include breakpoint($desktop) { font-size: 16px; }
 
   br {
-    @include breakpoint($desktop) {display: none;}    
+    @include breakpoint($desktop) { display: none; }
   }
 }
 

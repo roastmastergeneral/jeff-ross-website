@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var db = null,
-        today = moment.utc().startOf('day');
+        today = parseInt(moment.utc().startOf('day').format('x'));
 
     if (location.hostname == 'roastmastergeneral.com' || location.hostname == 'jeffreyross.com' || location.hostname == 'jeffreyrosshomemovie.com') {
         db = new Firebase('https://jeff-ross-prd.firebaseio.com/');

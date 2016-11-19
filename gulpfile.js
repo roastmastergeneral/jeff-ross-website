@@ -74,7 +74,7 @@ gulp.task('nunjucks', function () {
 gulp.task('push-gh-master', shell.task(['git push origin master']));
 
 gulp.task('push-gh-pages', function () {
-  return gulp.src('public/**/*')
+  return gulp.src('public/**/*', { dot: true })
     .pipe(ghPages({ force: true }));
 });
 

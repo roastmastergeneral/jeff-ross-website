@@ -46,8 +46,9 @@ gulp.task('image', function () {
     .pipe(gulp.dest('public/img'));
 });
 
-gulp.task('cname', function () {
-  return gulp.src('source/templates/CNAME')
+// See why .nojekyll: http://stackoverflow.com/q/40453806/4142567
+gulp.task('custom-files', function () {
+  return gulp.src(['source/templates/CNAME', 'source/templates/.nojekyll'])
     .pipe(gulp.dest('public'));
 });
 
@@ -80,7 +81,7 @@ gulp.task('push-gh-pages', function () {
 gulp.task('deploy', function (callback) {
   runSequence(
     'clean',
-    ['sass', 'js', 'image', 'nunjucks', 'vendor', 'cname'],
+    ['sass', 'js', 'image', 'nunjucks', 'vendor', 'custom-files'],
     'push-gh-master',
     'push-gh-pages',
     callback

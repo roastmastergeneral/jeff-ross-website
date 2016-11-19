@@ -1,9 +1,3 @@
-/*!
- * Pikaday
- *
- * Copyright © 2014 David Bushell | BSD & MIT license | https://github.com/dbushell/Pikaday
- */
-
 (function (root, factory)
 {
     'use strict';
@@ -900,11 +894,11 @@
         adjustPosition: function()
         {
             var field, pEl, width, height, viewportWidth, viewportHeight, scrollTop, left, top, clientRect;
-            
+
             if (this._o.container) return;
-            
+
             this.el.style.position = 'absolute';
-            
+
             field = this._o.trigger;
             pEl = field;
             width = this.el.offsetWidth;

@@ -99,6 +99,22 @@ $white-10: rgba(255,255,255,0.1);
         text-decoration: underline;
       }
     }
+    .e-buy-btn {
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 20px;
+      text-transform: uppercase;
+      font-weight: 100;
+      padding: 12px 24px;
+      color: #f6f6f6;
+      letter-spacing: 1px;
+      transition: background-color .5s ease;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .e-buy-btn:hover {
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
   }
 
 .b-center {

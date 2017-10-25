@@ -60,6 +60,7 @@
   min-height: 40px;
   width: 100%;
   background-position: center;
+  height: 50px;
 
   &.m-top {
     position: absolute;
@@ -67,8 +68,7 @@
   }
 
   @include breakpoint($tablet) {
-    height: 55px;
-    background-image: url(../img/banner-desktop.jpg);
+    height: 100px;
   }
   @include breakpoint($desktop) {
     height: 60px;

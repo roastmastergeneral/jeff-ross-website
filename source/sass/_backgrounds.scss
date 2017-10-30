@@ -54,7 +54,7 @@
 
 
 .b-criminals-banner {
-  background-image: url(../img/banner-mobile.jpg);
+  background-image: url(../img/banner-mobile.png);
   background-size: cover;
   display: block;
   min-height: 40px;
@@ -72,6 +72,6 @@
   }
   @include breakpoint($desktop) {
     height: 60px;
-    background-image: url(../img/banner-desktop.jpg);
+    background-image: url(../img/banner-desktop.png);
   }
 }

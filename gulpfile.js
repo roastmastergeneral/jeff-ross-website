@@ -65,17 +65,16 @@ gulp.task('nunjucks', function() {
     .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task('git-push', shell.task([
+gulp.task('deploy', shell.task([
   'git push origin master',
   'git subtree push --prefix public origin gh-pages',
 ]))
 
 // IMPORTANT: The "public" folder should NOT be included in the ".gitignore" file
-gulp.task('deploy', function() {
+gulp.task('build', function() {
   runSequence(
     'clean',
     ['sass', 'js', 'image', 'nunjucks', 'vendor', 'custom-files'],
-    'git-push'
   );
 });
 

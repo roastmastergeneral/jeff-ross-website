@@ -27,5 +27,11 @@ gulp
 ## Deployment
 
 ```
+gulp build
+```
+
+Create a commit.
+
+```
 gulp deploy
 ```

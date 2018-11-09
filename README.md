@@ -6,7 +6,7 @@ http://roastmastergeneral.com/
 
 - Clone the repo:
 ```
-git clone https://github.com/claudioccm/jeffross.git jeffross
+git clone git@github.com:roastmastergeneral/jeff-ross-website.git
 ```
 
 - Go to the project's directory:
@@ -30,7 +30,7 @@ gulp
 gulp build
 ```
 
-Create a commit.
+Create a commit with the changes.
 
 ```
 gulp deploy

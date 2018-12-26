@@ -1,13 +1,21 @@
 $(document).ready(function() {
-    var db = null,
-        today = parseInt(moment.utc().startOf('day').format('x'));
+    var today = parseInt(moment.utc().startOf('day').format('x'));
+    var config = {
+        apiKey: "AIzaSyDhPvuuQNHkVrgm7_OAAiQ6OVlCr05li68",
+        authDomain: "jeff-ross-prd.firebaseapp.com",
+        databaseURL: "https://jeff-ross-prd.firebaseio.com",
+        projectId: "jeff-ross-prd",
+        storageBucket: "jeff-ross-prd.appspot.com",
+        messagingSenderId: "672260888927"
+    };
+    firebase.initializeApp(config);
 
-    if (location.hostname == 'roastmastergeneral.com' || location.hostname == 'jeffreyross.com' || location.hostname == 'jeffreyrosshomemovie.com') {
-        db = new Firebase('https://jeff-ross-prd.firebaseio.com/');
+    // if (location.hostname == 'roastmastergeneral.com' || location.hostname == 'jeffreyross.com' || location.hostname == 'jeffreyrosshomemovie.com') {
+    //     db = new Firebase('https://jeff-ross-prd.firebaseio.com/');
 
-    } else {
-        db = new Firebase('https://jeff-ross-dev.firebaseio.com/');
-    }
+    // } else {
+    //     db = new Firebase('https://jeff-ross-dev.firebaseio.com/');
+    // }
 
     if ($('.bg-carousel').length > 1) {
         setInterval(function() {
@@ -35,7 +43,7 @@ $(document).ready(function() {
     });
 
     if ($('.b-upcoming-show').length) {
-        db.child('tour-dates').orderByChild('date').startAt(today).limitToFirst(1).once('value', function(snapshot) {
+        firebase.database().ref('/tour-dates').orderByChild('date').startAt(today).limitToFirst(1).once('value', function(snapshot) {
             snapshot.forEach(function(data) {
                 var obj = data.val(),
                     txt = '',
@@ -62,7 +70,7 @@ $(document).ready(function() {
     }
 
     if ($('.press').length) {
-        db.child('press').orderByChild('date').limitToLast(50).once('value', function(snapshot) {
+        firebase.database().ref('/press').orderByChild('date').limitToLast(50).once('value', function(snapshot) {
             snapshot.forEach(function(data) {
                 var obj = data.val(),
                     $li = $('<li/>').addClass('press-item'),
@@ -101,7 +109,7 @@ $(document).ready(function() {
     }
 
     if ($('.tour-dates').length) {
-        db.child('tour-dates').orderByChild('date').startAt(today).limitToFirst(50).once('value', function(snapshot) {
+        firebase.database().ref('/tour-dates').orderByChild('date').startAt(today).limitToFirst(50).once('value', function(snapshot) {
             snapshot.forEach(function(data) {
                 var obj = data.val(),
                     $tr = $('<tr/>'),
@@ -159,10 +167,18 @@ $(document).ready(function() {
     //
 
     if ($('#admin').length) {
-        if (db.getAuth()) {
+        if (firebase.auth().currentUser) {
             $('#admin .b-login').addClass('m-display-none');
             $('#admin .b-main').removeClass('m-display-none');
             $('#admin .b-header').removeClass('m-display-none');
+        } else {
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    $('#admin .b-login').addClass('m-display-none');
+                    $('#admin .b-main').removeClass('m-display-none');
+                    $('#admin .b-header').removeClass('m-display-none');
+                }
+            })
         }
 
         $('.datepicker').each(function() {
@@ -173,20 +189,15 @@ $(document).ready(function() {
             var id = $('.b-login .email').val(),
                 pwd = $('.b-login .password').val();
 
-            db.authWithPassword({email: id, password: pwd},
-                function(error, authData) {
-                    if (!error) {
-                        $('#admin .b-login').addClass('m-display-none');
-                        $('#admin .b-main').removeClass('m-display-none');
-                        $('#admin .b-header').removeClass('m-display-none');
-
-                    } else {
-                        $('.b-login .email').css('border-color', 'red');
-                        $('.b-login .password').css('border-color', 'red');
-                    }
-
-                }
-            );
+            firebase.auth().signInWithEmailAndPassword(id, pwd).then(function (result) {
+                $('#admin .b-login').addClass('m-display-none');
+                $('#admin .b-main').removeClass('m-display-none');
+                $('#admin .b-header').removeClass('m-display-none');
+            }).catch(function (err) {
+                console.error(err)
+                $('.b-login .email').css('border-color', 'red');
+                $('.b-login .password').css('border-color', 'red');
+            });
 
             return false;
         });
@@ -205,8 +216,11 @@ $(document).ready(function() {
     });
 
     $('#admin .e-tab.e-logout').click(function() {
-       db.unauth();
-       window.location.reload();
+        firebase.auth().signOut().then(function () {
+            window.location.reload();
+        }).catch(function (err) {
+            console.error(err)
+        });
     });
 
     $('#admin .modal .close, #admin .e-overlay').click(function() {
@@ -217,17 +231,16 @@ $(document).ready(function() {
     // Press.
     //
     if ($('#admin-press').length) {
-        db.child('press').orderByChild('date').on('child_added', function(snapshot) {
+        firebase.database().ref('/press').orderByChild('date').on('child_added', function(snapshot) {
             var obj = snapshot.val(),
                 $tr = $('<tr/>');
-
             $tr.append($('<td>').addClass('m-ellipsis date').text(moment.utc(parseInt(obj.date)).format('MM/DD/YYYY')));
             $tr.append($('<td>').addClass('m-ellipsis type m-capitalize').text(obj.type));
             $tr.append($('<td>').addClass('m-ellipsis title').text(obj.title));
             $tr.append($('<td>').addClass('m-ellipsis publisher').text(obj.publisher));
             $tr.append($('<td>').addClass('m-ellipsis link').text(obj.link));
-            $tr.append($('<td>').html($('<i/>').addClass('fa fa-pencil').data('oid', snapshot.key())));
-            $tr.children(':last-child').append($('<i/>').addClass('fa fa-times').data('oid', snapshot.key()));
+            $tr.append($('<td>').html($('<i/>').addClass('fa fa-pencil').data('oid', snapshot.key)));
+            $tr.children(':last-child').append($('<i/>').addClass('fa fa-times').data('oid', snapshot.key));
 
             $('#admin-press tbody').prepend($tr);
         });
@@ -239,7 +252,7 @@ $(document).ready(function() {
     });
 
     $('#admin-press').on('click', '.fa.fa-times', function() {
-        db.child('press').child($(this).data('oid')).set(null);
+        firebase.database().ref('/press/' + $(this).data('oid')).set(null);
 
         $(this).parents('tr').remove();
     });
@@ -275,7 +288,7 @@ $(document).ready(function() {
             doc[$(this).attr('name')] = val;
         });
 
-        db.child('press').push(doc);
+        firebase.database().ref('/press').push(doc);
 
         $('.modal-add-press').addClass('m-display-none');
         $('.e-overlay').addClass('m-display-none');
@@ -300,7 +313,7 @@ $(document).ready(function() {
         doc.publisher = $('.modal-edit-press .publisher').val();
         doc.link = $('.modal-edit-press .link').val();
 
-        db.child('press').child($(this).data('oid')).set(doc);
+        firebase.database().ref('/press/' + $(this).data('oid')).set(doc);
 
         $tr.children().eq(0).text($('.modal-edit-press .date').val());
         $tr.children().eq(1).text(doc.type);
@@ -318,7 +331,7 @@ $(document).ready(function() {
     // Tour.
     //
     if ($('#admin-tour').length) {
-        db.child('tour-dates').orderByChild('date').on('child_added', function(snapshot) {
+        firebase.database().ref('/tour-dates').orderByChild('date').on('child_added', function(snapshot) {
             var obj = snapshot.val(),
                 $tr = $('<tr/>');
 
@@ -328,8 +341,8 @@ $(document).ready(function() {
             $tr.append($('<td>').addClass('m-ellipsis location').text(obj.location));
             $tr.append($('<td>').addClass('m-ellipsis time').text(obj.time));
             $tr.append($('<td>').addClass('m-ellipsis link').text(obj.link));
-            $tr.append($('<td>').html($('<i/>').addClass('fa fa-pencil').data('oid', snapshot.key())));
-            $tr.children(':last-child').append($('<i/>').addClass('fa fa-times').data('oid', snapshot.key()));
+            $tr.append($('<td>').html($('<i/>').addClass('fa fa-pencil').data('oid', snapshot.key)));
+            $tr.children(':last-child').append($('<i/>').addClass('fa fa-times').data('oid', snapshot.key));
 
             $('#admin-tour tbody').prepend($tr);
         });
@@ -341,7 +354,7 @@ $(document).ready(function() {
     });
 
     $('#admin-tour').on('click', '.fa.fa-times', function() {
-        db.child('tour-dates').child($(this).data('oid')).set(null);
+        firebase.database().ref('/tour-dates/' + $(this).data('oid')).set(null);
 
         $(this).parents('tr').remove();
     });
@@ -378,7 +391,7 @@ $(document).ready(function() {
             doc[$(this).attr('name')] = val;
         });
 
-        db.child('tour-dates').push(doc);
+        firebase.database().ref('/tour-dates').push(doc);
 
         $('.modal-add-tour').addClass('m-display-none');
         $('.e-overlay').addClass('m-display-none');
@@ -404,7 +417,7 @@ $(document).ready(function() {
         doc.time = $('.modal-edit-tour .time').val();
         doc.link = $('.modal-edit-tour .link').val();
 
-        db.child('tour-dates').child($(this).data('oid')).set(doc);
+        firebase.database().ref('/tour-dates/' + $(this).data('oid')).set(doc);
 
         $tr.children().eq(0).text($('.modal-edit-tour .date').val());
         $tr.children().eq(1).text(doc.tour);

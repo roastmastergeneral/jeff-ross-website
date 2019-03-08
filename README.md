@@ -16,6 +16,7 @@ cd jeffross
 
 - Install the dependencies:
 ```
+npm install --global gulp-cli
 npm install
 ```
 

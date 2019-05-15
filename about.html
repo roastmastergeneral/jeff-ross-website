@@ -1,98 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jeff Ross - The RoastMaster General</title>
-    <link rel="stylesheet" href="styles/styles.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700|Montserrat:400,700">
-    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
-    <script src="vendor/modernizr.js"></script>
-    <script src="vendor/jquery.js"></script>
-    <script src="vendor/moment.js"></script>
-    <script src="js/scripts.js"></script>
-    
-  </head>
 
-  <body>
-    <div id="mainContainer">
-      <header class="header">
-        <div class="wrapper">
-          <a class="logo" href="./">
-            <h1><span>Jeff</span>Ross</h1>
-            <h2><span>The</span>Roastmaster<span>General</span></h2>
-          </a>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeff Ross - The RoastMaster General</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700|Montserrat:400,700">
+  <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+  <script src="vendor/modernizr.js"></script>
+  <script src="vendor/jquery.js"></script>
+  <script src="vendor/moment.js"></script>
+  <script src="js/scripts.js"></script>
+  
+</head>
 
-          <nav>
-            <ul>
-              <li><a href="about.html">About</a></li>
-              <li><a href="tour-dates.html">Tour Dates</a></li>
-              <li><a href="specials.html">Specials</a></li>
-              <li><a href="press.html">Press</a></li>
-              <li><a href="books.html">Books & Merch</a></li>
-              <!-- <li><a href="videos.html">Videos</a></li> <!-- Add link to youtube page -->
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <i class="fa fa-2x fa-bars"></i>
-          </nav>
+<body>
+  <div id="mainContainer">
+    <header class="header">
+      <div class="wrapper">
+        <a class="logo" href="./">
+          <h1><span>Jeff</span>Ross</h1>
+          <h2><span>The</span>Roastmaster<span>General</span></h2>
+        </a>
 
-          <div id="overlay"></div>
+        <nav>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="tour-dates.html">Tour Dates</a></li>
+            <li><a href="specials.html">Specials</a></li>
+            <li><a href="press.html">Press</a></li>
+            <!-- <li><a href="books.html">Books & Merch</a></li> -->
+            <li><a href="https://the-roastmaster-generals-general-store.myshopify.com/" target="_blank"
+                rel="noopener">Books &amp; Merch</a></li>
+            <!-- <li><a href="videos.html">Videos</a></li> <!-- Add link to youtube page -->
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <i class="fa fa-2x fa-bars"></i>
+        </nav>
+
+        <div id="overlay"></div>
 
 
-          <div class="social-media">
-            <a class="instagram" href="https://instagram.com/therealjeffreyross/" target="_blank"><i class="fa fa-2x fa-instagram"></i></a>
-            <a class="twitter" href="https://twitter.com/realjeffreyross" target="_blank"><i class="fa fa-2x fa-twitter"></i></a>
-            <a class="facebook" href="https://www.facebook.com/RoastmasterGeneral" target="_blank"><i class="fa fa-2x fa-facebook"></i></a>
-          </div>
+        <div class="social-media">
+          <a class="instagram" href="https://instagram.com/therealjeffreyross/" target="_blank"><i
+              class="fa fa-2x fa-instagram"></i></a>
+          <a class="twitter" href="https://twitter.com/realjeffreyross" target="_blank"><i
+              class="fa fa-2x fa-twitter"></i></a>
+          <a class="facebook" href="https://www.facebook.com/RoastmasterGeneral" target="_blank"><i
+              class="fa fa-2x fa-facebook"></i></a>
         </div>
-
-        
-  <div class="bg bg-carousel bg-about-videos-1 m-visible"></div>
-  <div class="bg bg-carousel bg-about-videos-2"></div>
-    <a href="https://www.netflix.com/watch/80216225?trackId=200254291&tctx=0%2C0%2C65f96931-340f-4c2e-b462-8a56756f24ab-10732248%2C6356a79c-8c12-4bb5-80d0-6aaea6d895df_15319629X6XX1543361760906%2C6356a79c-8c12-4bb5-80d0-6aaea6d895df_ROOT" class="b-criminals-banner m-top" target="_blank"></a>
-
-      </header>
-
-      <div class="main">
-        
-  <h1>About Jeff</h1>
-
-  <section class="content">
-    <div class="wrapper b-about b-text-page">
-      <p>Most recently you can see Jeff on Netflix in “Bumping Mics” with Dave Attell.  It is three episodes of rapid fire two man stand up.  The joke per minute ratio, is off the rails.  Jeff and Dave are headliners in their own right, but when they combine forces it's a whole other beast that can't be tamed.</p>
-
-      <p>Soon Jeff will be back on Netflix starring in a series called “Historical Roasts” where he hosts his dream roasts with some of the most famous people in history.</p>  
-
-      <p>As a regular on the Comedy Central Roasts, Jeff has roasted many infamous stars including Bruce Willis, Justin Bieber, Roseanne Barr, Joan Rivers, Charlie Sheen, and The President of The United States Donald Trump.</p> 
-
-      <p>These roasts have become a mainstay in popular culture and propelled roasting into the public eye. Building on their success, Jeff launched “Jeff Ross Presents Roast Battle” in 2016, a competition show in which comics go mic to mic in a battle of wits. Judged by some of the best comedy minds of our generation, including Jimmy Kimmel, Kevin Hart ,and Seth Rogen, Roast Battle has introduced new stars and started a movement.</p> 
-
-      <p>Comedy Central has since taken the format international, producing versions of the show in Britain and South Africa, while homegrown “Roast Battles” continue to pop up at comedy clubs all across the world. Season 3 of Roast Battle will air on Comedy Central later this year.</p>
-
-      <p>Jeff's most recent comedy specials turn roasting into social commentary.  With Jeff Ross Roasts Criminals, Jeff Ross Roasts Cops, and Jeff Ross Roasts The Border, Jeff has shed light on some of the more polarizing political issues of our time. These specials have taken him to a maximum security prison, the Boston Police Department, and both sides of the Mexican border. Jeff has immersed himself in these communities and then roasted them.</p>
-
-      <p>Jeff also regularly tours with the USO to perform for our troops overseas.  Most recently Jeff traveled to Iraq with The Chairman of the Joint Chiefs of Staff, General Joseph Dunford, and performed holiday shows for the soldiers stationed there.</p>
-
-      <p>Recently, Jeff has also lent his voice to cartoons, with performances in Future Worm, Penn Zero: Part Time Hero, The Emoji Movie, and as series regular “Hook Foot” on the popular Disney show Tangled.</p>
-
-      <p>The Roastmaster General is a one man verbal assault unit that takes no prisoners. So what are you waiting for?  Come to his shows and see if you have what it takes to get roasted by The Roastmaster General.</p>
-    </div>
-  </section>
-
       </div>
 
+      
+<div class="bg bg-carousel bg-about-videos-1 m-visible"></div>
+<div class="bg bg-carousel bg-about-videos-2"></div>
+<a href="/tour-dates.html" class="b-criminals-banner m-top" target="_blank"></a>
+
+    </header>
+
+    <div class="main">
+      
+<h1>About Jeff</h1>
+
+<section class="content">
+  <div class="wrapper b-about b-text-page">
+    <p>Most recently you can see Jeff on Netflix in “Bumping Mics” with Dave Attell. It is three episodes of rapid fire
+      two man stand up. The joke per minute ratio, is off the rails. Jeff and Dave are headliners in their own right,
+      but when they combine forces it's a whole other beast that can't be tamed.</p>
+
+    <p>Soon Jeff will be back on Netflix starring in a series called “Historical Roasts” where he hosts his dream roasts
+      with some of the most famous people in history.</p>
+
+    <p>As a regular on the Comedy Central Roasts, Jeff has roasted many infamous stars including Bruce Willis, Justin
+      Bieber, Roseanne Barr, Joan Rivers, Charlie Sheen, and The President of The United States Donald Trump.</p>
+
+    <p>These roasts have become a mainstay in popular culture and propelled roasting into the public eye. Building on
+      their success, Jeff launched “Jeff Ross Presents Roast Battle” in 2016, a competition show in which comics go mic
+      to mic in a battle of wits. Judged by some of the best comedy minds of our generation, including Jimmy Kimmel,
+      Kevin Hart ,and Seth Rogen, Roast Battle has introduced new stars and started a movement.</p>
+
+    <p>Comedy Central has since taken the format international, producing versions of the show in Britain and South
+      Africa, while homegrown “Roast Battles” continue to pop up at comedy clubs all across the world. Season 3 of Roast
+      Battle will air on Comedy Central later this year.</p>
+
+    <p>Jeff's most recent comedy specials turn roasting into social commentary. With Jeff Ross Roasts Criminals, Jeff
+      Ross Roasts Cops, and Jeff Ross Roasts The Border, Jeff has shed light on some of the more polarizing political
+      issues of our time. These specials have taken him to a maximum security prison, the Boston Police Department, and
+      both sides of the Mexican border. Jeff has immersed himself in these communities and then roasted them.</p>
+
+    <p>Jeff also regularly tours with the USO to perform for our troops overseas. Most recently Jeff traveled to Iraq
+      with The Chairman of the Joint Chiefs of Staff, General Joseph Dunford, and performed holiday shows for the
+      soldiers stationed there.</p>
+
+    <p>Recently, Jeff has also lent his voice to cartoons, with performances in Future Worm, Penn Zero: Part Time Hero,
+      The Emoji Movie, and as series regular “Hook Foot” on the popular Disney show Tangled.</p>
+
+    <p>The Roastmaster General is a one man verbal assault unit that takes no prisoners. So what are you waiting for?
+      Come to his shows and see if you have what it takes to get roasted by The Roastmaster General.</p>
+  </div>
+</section>
+
     </div>
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-70284418-1', 'auto');
-  ga('send', 'pageview');
+  </div>
+  <script>
+    (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-</script>
-  </body>
+    ga('create', 'UA-70284418-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+
 </html>

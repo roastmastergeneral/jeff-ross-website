@@ -1,54 +1,60 @@
 {% extends "base.html" %}
 
 {% block header %}
-  <div class="bg bg-carousel bg-home-merch-1 m-visible"></div>
-  <div class="bg bg-carousel bg-home-merch-2"></div>
-  <div class="bg bg-carousel bg-home-merch-3"></div>
+<div class="bg bg-carousel bg-home-merch-1 m-visible"></div>
+<div class="bg bg-carousel bg-home-merch-2"></div>
+<div class="bg bg-carousel bg-home-merch-3"></div>
 
-  <div class="b-upcoming-show">
-    <a href="#" target="_blank">&nbsp;</a>
-  </div> <!-- Edit Here -->
+<div class="b-upcoming-show">
+  <a class="fade" href="#" target="_blank" rel="noopener">&nbsp;</a>
+</div> <!-- Edit Here -->
 {% endblock %}
 
 {% block content %}
-  <a href="https://www.netflix.com/watch/80216225?trackId=200254291&tctx=0%2C0%2C65f96931-340f-4c2e-b462-8a56756f24ab-10732248%2C6356a79c-8c12-4bb5-80d0-6aaea6d895df_15319629X6XX1543361760906%2C6356a79c-8c12-4bb5-80d0-6aaea6d895df_ROOT" class="b-criminals-banner" target="_blank"></a>
-  <section class="content">
-    <div class="wrapper">
-      <div class="b-center">
-        <div class="b-video-wrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/oypPC6i3O1g" frameborder="0" allowfullscreen></iframe>
-        </div>
+<a href="/tour-dates.html" class="b-criminals-banner" target="_blank"></a>
+<section class="content">
+  <div class="wrapper">
+    <div class="b-center">
+      <div class="b-video-wrapper">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/oypPC6i3O1g" frameborder="0"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="b-left" style="margin-top: 50px;">
+      <div>
+        <img src="img/podcast-image.png" />
       </div>
 
-      <div class="b-left" style="margin-top: 50px;">
-        <div>
-          <img src="img/podcast-image.png" />
-        </div>
+      <div id="jeff-roasts-criminals" class="b-description">
+        <div class="e-title">Listen to Thick Skin with Jeff Ross</div>
 
-        <div id="jeff-roasts-criminals" class="b-description">
-          <div class="e-title">Listen to Thick Skin with Jeff Ross</div>
+        <div class="b-stores">
+          <a href="https://itunes.apple.com/us/podcast/thick-skin-with-jeff-ross/id1309231011?mt=2" target="_blank">
+            <img class="e-itunes" src="img/logos/itunes.png" />
+          </a>
 
-          <div class="b-stores">
-            <a href="https://itunes.apple.com/us/podcast/thick-skin-with-jeff-ross/id1309231011?mt=2" target="_blank">
-              <img class="e-itunes" src="img/logos/itunes.png" />
-            </a>
-
-            <a href="https://www.podbean.com/podcast-detail/hrssn-5f23b/Thick+Skin+with+Jeff+Ross" target="_blank">
+          <!-- <a href="https://www.podbean.com/podcast-detail/hrssn-5f23b/Thick+Skin+with+Jeff+Ross" target="_blank">
               <img class="e-itunes" src="img/logos/podbean_logo.png" />
-            </a>
+            </a> -->
 
-            <a href="https://www.stitcher.com/podcast/thick-skin-with-jeff-ross" target="_blank">
-              <img src="img/logos/stitcher_logo.png" />
-            </a>
+          <a href="https://open.spotify.com/show/4Vq1S42FiJH3nLWr8IPWQg" target="_blank">
+            <img class="e-spotify" src="img/logos/spotify.png" />
+          </a>
 
-            <a href="http://thickskin.libsyn.com/" target="_blank">
-              <img style="margin: 0 0 12px 0;" src="img/logos/libsyn_logo.png" />
-            </a>
-          </div>
+          <a href="https://www.stitcher.com/podcast/thick-skin-with-jeff-ross" target="_blank">
+            <img src="img/logos/stitcher_logo.png" />
+          </a>
+
+          <a href="http://thickskin.libsyn.com/" target="_blank">
+            <img style="margin: 0 0 12px 0;" src="img/logos/libsyn_logo.png" />
+          </a>
         </div>
       </div>
-      <div class="soundcloud-embed">
-        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/448796838&color=%23201814&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-      </div>
-  </section>
+    </div>
+    <div class="soundcloud-embed">
+      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/448796838&color=%23201814&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    </div>
+</section>
 {% endblock %}

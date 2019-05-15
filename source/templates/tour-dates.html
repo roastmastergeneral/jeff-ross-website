@@ -1,32 +1,32 @@
 {% extends "base.html" %}
 
 {% block header %}
-  <div class="bg bg-carousel bg-contact-tour-1 m-visible"></div>
-  <div class="bg bg-carousel bg-contact-tour-2"></div>
-    <a href="https://www.netflix.com/watch/80216225?trackId=200254291&tctx=0%2C0%2C65f96931-340f-4c2e-b462-8a56756f24ab-10732248%2C6356a79c-8c12-4bb5-80d0-6aaea6d895df_15319629X6XX1543361760906%2C6356a79c-8c12-4bb5-80d0-6aaea6d895df_ROOT" class="b-criminals-banner m-top" target="_blank"></a>
+<div class="bg bg-carousel bg-contact-tour-1 m-visible"></div>
+<div class="bg bg-carousel bg-contact-tour-2"></div>
+<a href="/tour-dates.html" class="b-criminals-banner m-top" target="_blank"></a>
 {% endblock %}
 
 {% block content %}
-  <h1>Tour Dates</h1>
+<h1>Tour Dates</h1>
 
-  <section class="content">
-    <div class="wrapper">
-      <table class="tour-dates">
-        <thead>
-          <th class="m-ellipsis date">Date</th>
-          <th class="m-ellipsis time">Time</th>
-          <th class="m-ellipsis tour">Tour</th>
-          <th class="m-ellipsis venue">Venue</th>
-          <th class="m-ellipsis location">Location</th>
-          <th class="link"></th>
-        </thead>
+<section class="content">
+  <div class="wrapper">
+    <table class="tour-dates">
+      <thead>
+        <th class="m-ellipsis date">Date</th>
+        <th class="m-ellipsis time">Time</th>
+        <th class="m-ellipsis tour">Tour</th>
+        <th class="m-ellipsis venue">Venue</th>
+        <th class="m-ellipsis location">Location</th>
+        <th class="link"></th>
+      </thead>
 
-        <tbody>{# Filled via JavaScript. #}</tbody>
-      </table>
-<!--       <div class="no-tours">
+      <tbody>{# Filled via JavaScript. #}</tbody>
+    </table>
+    <!--       <div class="no-tours">
         <h2>There are no scheduled shows<br>
         <a href="./specials.html">Maybe a Special?</a></h2>
       </div> -->
-    </div>
-  </section>
+  </div>
+</section>
 {% endblock %}

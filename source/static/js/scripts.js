@@ -43,29 +43,43 @@ $(document).ready(function() {
     });
 
     if ($('.b-upcoming-show').length) {
-        firebase.database().ref('/tour-dates').orderByChild('date').startAt(today).limitToFirst(1).once('value', function(snapshot) {
+        firebase.database().ref('/tour-dates').orderByChild('date').startAt(today).limitToFirst(100).once('value', function(snapshot) {
+            var tours = [];
             snapshot.forEach(function(data) {
                 var obj = data.val(),
-                    txt = '',
-                    $a = $('.b-upcoming-show a');
+                    txt = '';
 
-                if (obj.link) {
-                    if (obj.link.indexOf('//') > -1) {
-                        $a.attr('href', obj.link);
-
-                    } else {
-                        $a.attr('href', '//' + obj.link);
-                    }
-                }
-
-                txt += 'next show: ';
                 txt += moment.utc(parseInt(obj.date)).format('MMM Do') + ' ';
                 txt += obj.time + ' | ';
                 txt += obj.venue + ' - ';
                 txt += obj.location;
-
-                $a.html(txt);
+                tours.push({ link: obj.link, txt: txt });
             });
+            $a = $('.b-upcoming-show a');
+            var toursAmount = tours.length
+            var currentTour = -1
+            function rotateTour () {
+                if (toursAmount == 0) {
+                    return;
+                } else if (++currentTour >= toursAmount) {
+                    currentTour = 0
+                }
+                var obj = tours[currentTour]
+                if (obj.link) {
+                    if (obj.link.indexOf('//') > -1) {
+                        $a.attr('href', obj.link);
+                    } else {
+                        $a.attr('href', '//' + obj.link);
+                    }
+                }
+                $a.html((currentTour === 0 ? 'next show: ' : 'upcoming show: ') + obj.txt);
+                $a.removeClass('fade');
+                setTimeout(function () {
+                    $a.addClass('fade')
+                    setTimeout(rotateTour, 330)
+                }, 4850)
+            }
+            rotateTour()
         });
     }
 

@@ -109,7 +109,8 @@
   width: 100%;
   font-size: 12px;
 
-  a { color: white; }
+  a { color: white; transition: opacity 0.33s ease-in-out; }
+  a.fade { opacity: 0; }
   a:hover { text-decoration: underline; }
 
   @include breakpoint($tablet) { font-size: 16px; }

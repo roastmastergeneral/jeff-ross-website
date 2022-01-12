@@ -1,12 +1,12 @@
 var del = require('del');
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var shell = require('gulp-shell');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
-var runSequence = require('run-sequence').use(gulp);
+var runSequence = require('gulp4-run-sequence');
 var nunjucksRender = require('gulp-nunjucks-render');
 
 // Clean "public" folder
@@ -79,11 +79,11 @@ gulp.task('build', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('source/static/**/*.js', ['js']);
-  gulp.watch('source/sass/**/*.scss', ['sass']);
-  gulp.watch('source/templates/**/*.html', ['nunjucks']);
-  gulp.watch('source/static/vendor/**/*', ['vendor']);
-  gulp.watch('source/static/img/**/*', ['images']);
+  gulp.watch('source/static/**/*.js', gulp.series('js'));
+  gulp.watch('source/sass/**/*.scss', gulp.series('sass'));
+  gulp.watch('source/templates/**/*.html', gulp.series('nunjucks'));
+  gulp.watch('source/static/vendor/**/*', gulp.series('vendor'));
+  gulp.watch('source/static/img/**/*', gulp.series('image'));
 });
 
 gulp.task('default', function(callback) {

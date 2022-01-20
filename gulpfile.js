@@ -71,7 +71,7 @@ gulp.task('deploy', shell.task([
 ]))
 
 // IMPORTANT: The "public" folder should NOT be included in the ".gitignore" file
-gulp.task('build', function() {
+gulp.task('build', async function() {
   runSequence(
     'clean',
     ['sass', 'js', 'image', 'nunjucks', 'vendor', 'custom-files'],

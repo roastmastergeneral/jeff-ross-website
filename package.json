@@ -24,5 +24,7 @@
     "run-sequence": "^2.2.1",
     "sass": "^1.46.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "fsevents": "^2.3.3"
+  }
 }

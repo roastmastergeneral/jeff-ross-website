@@ -9,7 +9,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  height: 100vh;
+  // height: 100vh;
   -o-transition: opacity 1s ease;
   -ms-transition: opacity 1s ease;
   -moz-transition: opacity 1s ease;
@@ -19,10 +19,10 @@
   &.bg-carousel { opacity: 0; }
   &.bg-carousel.m-visible { opacity: 1; }
 
-  @include breakpoint($tablet) { top: 55px; }
+  // @include breakpoint($tablet) { top: 55px; }
 
   @include breakpoint($desktop) {
-    top: 50px;
+    top: -50px;
     background-image: url("../img/bgs/home-merch-1.jpg");
   }
 
@@ -54,13 +54,28 @@
 
 
 .b-criminals-banner {
-  background-image: url(../img/banner-mobile.png);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: "Montserrat",sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.45rem;
+  letter-spacing: .7px;
+  background-image: url(../img/banner-bg.jpg);
   background-size: cover;
-  display: block;
+  background-position: center;
+  display: flex;
   min-height: 40px;
   width: 100%;
-  background-position: center;
-  height: 50px;
+  padding: 1rem;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+
+  }
 
   &.m-top {
     position: absolute;
@@ -72,6 +87,6 @@
   }
   @include breakpoint($desktop) {
     height: 60px;
-    background-image: url(../img/banner-desktop.png);
+    background-image: url(../img/banner-bg.jpg);
   }
 }

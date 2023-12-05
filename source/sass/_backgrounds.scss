@@ -72,6 +72,19 @@
   padding: 1rem;
   transition: all .3s ease-in-out;
 
+  &[data-bg-color=red] {
+    background-image: url(../img/banner-bg-red.png);
+  }
+  &[data-bg-color=yellow] {
+    background-image: url(../img/banner-bg-yellow.png);
+  }
+  &[data-bg-color=green] {
+    background-image: url(../img/banner-bg-green.png);
+  }
+  &[data-bg-color=blue] {
+    background-image: url(../img/banner-bg-blue.png);
+  }
+
   &:hover {
     transform: scale(1.05);
 

@@ -167,4 +167,29 @@ $(document).ready(function() {
       });
     });
   }
+
+    // Banner
+  if ($('#banner').length) {
+    var bannerPromise = contentfulClient.getEntries({
+      content_type: 'banner',
+      order: '-sys.updatedAt',
+      limit: 1,
+    });
+    
+    $banner = $('#banner')
+    bannerPromise.then(function (results) {
+      if (results.items.length > 0) {
+        var banner = {
+          title: results.items[0].fields.title,
+          bannerColor: results.items[0].fields.bannerColor.toLowerCase(),
+        }
+
+        $banner.attr('data-bg-color', banner.bannerColor)
+        $banner.text(banner.title)
+      }
+      else {
+        $banner.hide()
+      }
+    });
+  }
 });
